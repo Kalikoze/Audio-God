@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
 import Visualizer from '../Visualizer/Visualizer';
-import TrackControls from '../TrackControls/TrackControls';
+import AudioEffects from '../AudioEffects/AudioEffects';
 import Mixer from '../Mixer/Mixer';
 import SoundLibrary from '../SoundLibrary/SoundLibrary';
 import './App.css'
+import backgroundImage from '../assets/dark-wood.jpg'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Visualizer />
-        <TrackControls />
-        <Mixer />
-        <SoundLibrary />
+        <div className='background-container'>
+          <img className='background-image' src={backgroundImage}/>
+        </div>
+        <div className='component-container'>
+          <Visualizer />
+            <div className='controls'>
+              <div className='lower-control-left-box'>
+                <AudioEffects />
+                <SoundLibrary />
+              </div>
+                <Mixer />
+            </div>  
+          </div>
       </div>
     );
   }

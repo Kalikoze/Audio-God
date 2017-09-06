@@ -5,7 +5,7 @@ import './Mixer.css'
 export default class Mixer extends Component {
   render() {
     return (
-      <div className="Mixer">
+      <div className="mixer">
         <TrackComponent />
       </div>
     )

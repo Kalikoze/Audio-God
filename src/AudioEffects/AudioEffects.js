@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './TrackControls.css'
+import './AudioEffects.css'
 
-export default class TrackControls extends Component {
+export default class AudioEffects extends Component {
   render() {
     return (
       <div className="track-controls">

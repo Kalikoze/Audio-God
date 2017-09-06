@@ -1,6 +1,21 @@
 .track-controls {
   width: 100%;
   height: 75%;
-  background: blue;
-  display: inline-block;
+  /*background: blue;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-controls-inner-box {
+  position: relative;
+  width: 581px;
+  height: 367px;
+  /*background: yellow;*/
+}
+
+.audio-controls-backdrop  {
+  width: 580px;
+  height: 342px;
+  border-radius: 31px;
 }

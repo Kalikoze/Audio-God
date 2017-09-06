@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ControlKnob from '../ControlKnob/ControlKnob'
 import './AudioEffects.css'
 
 export default class AudioEffects extends Component {
@@ -6,6 +7,12 @@ export default class AudioEffects extends Component {
     return (
       <div className="track-controls">
         Track Controls
+        <ControlKnob />
+        <ControlKnob />
+        <ControlKnob />
+        <ControlKnob />
+        <ControlKnob />
+        <ControlKnob />
       </div>
     )
   }

@@ -7,7 +7,7 @@ export default class SoundLibrary extends Component {
     return (
       <div className="sound-library">
         <div className='library-component-background'>
-          <img className='black-background-library' src={blackBackground}/>
+          <img className='black-background-library' alt='' src={blackBackground}/>
         </div>
       </div>
     )

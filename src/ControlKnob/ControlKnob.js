@@ -5,106 +5,45 @@ export default class ControlKnob extends Component {
   constructor() {
     super();
     this.state = {
-      tick: 'tick', //ClassName for ticks
-      knob: 'knob', //ClassName for knobs
       angle: 0,
       currentValue: 0,
+      ticksArray: Array.from(Array(28), (e, i) => <div className='tick' key={i}></div>)
     }
   }
 
-  moveKnob(direction) {
-    const { angle } = this.state;
-    const minangle = 0;
-    const maxangle = 270;
+  moveKnob(e) {
+    const { angle, activeTicks } = this.state;
+    const minangle = angle - 2 >= 0 ? angle - 2 : 0;
+    const maxangle = angle + 2 <= 270 ? angle + 2 : 270;
 
-    if(direction == 'up') {
-      if((angle + 2) <= maxangle) {
-        this.setState({angle: angle + 2});
-        this.setAngle();
-      }
-    }
-
-    else if(direction == 'down') {
-      if((angle - 2) >= minangle) {
-        this.setState({angle: angle - 2});
-        this.setAngle();
-      }
-    }
-
+    e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setAngle()) : (this.setState({angle: minangle}), this.setAngle())
   }
 
   setAngle() {
-    const { angle } = this.state;
-    var activeTicks = (Math.round(angle / 10) + 1);
-    this.setState({tick: 'tick'})
-    // $('.tick').slice(0,activeTicks).addClass('activetick');
+    const { angle, ticksArray } = this.state;
+    const activeTicks = (Math.round(angle / 10) + 1);
+    const activeArray = [...ticksArray.slice(0, activeTicks).map((tick) => <div className='tick activeTick'></div>)]
+    const unactiveArray = [...ticksArray.slice(0, 28 - activeTicks).map((tick) => <div className='tick'></div>)]
 
-    // update % value in text
+    this.setState({ticksArray: [...activeArray, ...unactiveArray]})
     this.setState({currentValue: Math.round((angle/270)*100)})
   }
 
-  // // mousewheel event - firefox
-  // knob.bind('DOMMouseScroll', function(e){
-  //   if(e.originalEvent.detail > 0) {
-  //     moveKnob('down');
-  //   } else {
-  //     moveKnob('up');
-  //   }
-  //   return false;
-  // });
-  //
-  // // mousewheel event - ie, safari, opera
-  // knob.bind('mousewheel', function(e){
-  //   if(e.originalEvent.wheelDelta < 0) {
-  //     moveKnob('down');
-  //   } else {
-  //     moveKnob('up');
-  //   }
-  //   return false;
-  // });
-
   render() {
-    const { tick, knob, currentValue } = this.state;
-    const { knobClass } = this.props
+    const { tick, currentValue, ticksArray } = this.state;
+    const { knobClass } = this.props;
+    console.log(ticksArray)
 
     return (
       <div className={knobClass}>
 
         <div className="knob-surround">
-        <div className={knob}></div>
+        <div className='knob' onWheel={e => this.moveKnob(e)}></div>
           <span className="min">Min</span>
           <span className="max">Max</span>
 
           <div className="ticks">
-            <div className="tick activetick"></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-            <div className={tick}></div>
-
+            {ticksArray}
           </div>
         </div>
         <p>Current value: <span className="current-value">{currentValue}</span></p>

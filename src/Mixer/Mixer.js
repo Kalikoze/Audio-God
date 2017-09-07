@@ -8,7 +8,7 @@ export default class Mixer extends Component {
     return (
       <div className="mixer">
         <div className='track-component-background'>
-          <img className='black-background-track' src={blackBackground}/>
+          <img className='black-background-track' alt='' src={blackBackground}/>
         </div>
 
         <TrackComponent />

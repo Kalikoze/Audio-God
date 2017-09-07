@@ -8,13 +8,13 @@ export default class Visualizer extends Component {
     return (
       <div className="visualizer">
         <div className='left-speaker-box'>
-          <img className='speaker' src={Speaker}/>
+          <img className='speaker' alt='' src={Speaker}/>
         </div>
         <div className='visualizer-box'>
-          <img className='black-background' src={blackBackground}/>
+          <img className='black-background' alt='' src={blackBackground}/>
         </div>
         <div className='right-speaker-box'>
-          <img className='speaker' src={Speaker}/>
+          <img className='speaker' alt='' src={Speaker}/>
         </div>
       </div>
     )

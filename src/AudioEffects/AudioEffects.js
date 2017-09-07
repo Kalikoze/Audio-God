@@ -9,7 +9,7 @@ export default class AudioEffects extends Component {
       <div className="track-controls">
 
         <div className='track-controls-inner-box'>
-          <img className='audio-controls-backdrop' src={AudioControlsBack}/>
+          <img className='audio-controls-backdrop' alt='' src={AudioControlsBack}/>
         </div>
 
 

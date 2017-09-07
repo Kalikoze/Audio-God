@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='background-container'>
-          <img className='background-image' src={backgroundImage}/>
+          <img className='background-image' alt='' src={backgroundImage}/>
         </div>
         <div className='component-container'>
           <Visualizer />

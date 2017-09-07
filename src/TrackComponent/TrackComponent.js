@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TrackComponent.css';
-import blackBackground from '../assets/black-background.jpg';
+// import blackBackground from '../assets/black-background.jpg';
 
 export default class TrackComponent extends Component {
   render() {

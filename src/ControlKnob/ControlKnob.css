@@ -147,26 +147,26 @@ body {
   right: -18px;
 }
 
-.tick {
+.tick-effects {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  width: 76%;
+  height: 74%;
+  top: 13px;
+  left: 11px;
   z-index: 5;
   overflow: visible;
   /*background: red;*/
 }
 
-.tick:after {
+.tick-effects:after {
   content: "";
-  width: .08em;
-  height: .6em;
+  width: 2px;
+  height: 9px;
   background-color: rgba(255,255,255,.2);
   position: absolute;
-  top: -1.5em;
+  top: -20px;
   left: 50%;
-  /*.transition(all 180ms ease-out);*/
+  transition: all 180ms ease-out;
 }
 
 .activeTick:after {
@@ -175,38 +175,38 @@ body {
   .transition(all 50ms ease-in);*/
 }
 
-.tick:nth-child(1)  { transform: rotate(-135deg); }
-.tick:nth-child(2)  { transform: rotate(-125deg); }
-.tick:nth-child(3)  { transform: rotate(-115deg); }
-.tick:nth-child(4)  { transform: rotate(-105deg); }
-.tick:nth-child(5)  { transform: rotate(-95deg);  }
-.tick:nth-child(6)  { transform: rotate(-85deg);  }
-.tick:nth-child(7)  { transform: rotate(-75deg);  }
-.tick:nth-child(8)  { transform: rotate(-65deg);  }
-.tick:nth-child(9)  { transform: rotate(-55deg);  }
-.tick:nth-child(10) { transform: rotate(-45deg);  }
-.tick:nth-child(11) { transform: rotate(-35deg);  }
-.tick:nth-child(12) { transform: rotate(-25deg);  }
-.tick:nth-child(13) { transform: rotate(-15deg);  }
-.tick:nth-child(14) { transform: rotate(-5deg);   }
-.tick:nth-child(15) { transform: rotate(5deg);   }
-.tick:nth-child(16) { transform: rotate(15deg);   }
-.tick:nth-child(17) { transform: rotate(25deg);   }
-.tick:nth-child(18) { transform: rotate(35deg);   }
-.tick:nth-child(19) { transform: rotate(45deg);   }
-.tick:nth-child(20) { transform: rotate(55deg);   }
-.tick:nth-child(21) { transform: rotate(65deg);   }
-.tick:nth-child(22) { transform: rotate(75deg);   }
-.tick:nth-child(19) { transform: rotate(45deg);   }
-.tick:nth-child(20) { transform: rotate(55deg);   }
-.tick:nth-child(21) { transform: rotate(65deg);   }
-.tick:nth-child(22) { transform: rotate(75deg);   }
-.tick:nth-child(23) { transform: rotate(85deg);   }
-.tick:nth-child(24) { transform: rotate(95deg);   }
-.tick:nth-child(25) { transform: rotate(105deg);  }
-.tick:nth-child(26) { transform: rotate(115deg);  }
-.tick:nth-child(27) { transform: rotate(125deg);  }
-.tick:nth-child(28) { transform: rotate(135deg);  }
+.tick-effects:nth-child(1)  { transform: rotate(-135deg); }
+.tick-effects:nth-child(2)  { transform: rotate(-125deg); }
+.tick-effects:nth-child(3)  { transform: rotate(-115deg); }
+.tick-effects:nth-child(4)  { transform: rotate(-105deg); }
+.tick-effects:nth-child(5)  { transform: rotate(-95deg);  }
+.tick-effects:nth-child(6)  { transform: rotate(-85deg);  }
+.tick-effects:nth-child(7)  { transform: rotate(-75deg);  }
+.tick-effects:nth-child(8)  { transform: rotate(-65deg);  }
+.tick-effects:nth-child(9)  { transform: rotate(-55deg);  }
+.tick-effects:nth-child(10) { transform: rotate(-45deg);  }
+.tick-effects:nth-child(11) { transform: rotate(-35deg);  }
+.tick-effects:nth-child(12) { transform: rotate(-25deg);  }
+.tick-effects:nth-child(13) { transform: rotate(-15deg);  }
+.tick-effects:nth-child(14) { transform: rotate(-5deg);   }
+.tick-effects:nth-child(15) { transform: rotate(5deg);   }
+.tick-effects:nth-child(16) { transform: rotate(15deg);   }
+.tick-effects:nth-child(17) { transform: rotate(25deg);   }
+.tick-effects:nth-child(18) { transform: rotate(35deg);   }
+.tick-effects:nth-child(19) { transform: rotate(45deg);   }
+.tick-effects:nth-child(20) { transform: rotate(55deg);   }
+.tick-effects:nth-child(21) { transform: rotate(65deg);   }
+.tick-effects:nth-child(22) { transform: rotate(75deg);   }
+.tick-effects:nth-child(19) { transform: rotate(45deg);   }
+.tick-effects:nth-child(20) { transform: rotate(55deg);   }
+.tick-effects:nth-child(21) { transform: rotate(65deg);   }
+.tick-effects:nth-child(22) { transform: rotate(75deg);   }
+.tick-effects:nth-child(23) { transform: rotate(85deg);   }
+.tick-effects:nth-child(24) { transform: rotate(95deg);   }
+.tick-effects:nth-child(25) { transform: rotate(105deg);  }
+.tick-effects:nth-child(26) { transform: rotate(115deg);  }
+.tick-effects:nth-child(27) { transform: rotate(125deg);  }
+.tick-effects:nth-child(28) { transform: rotate(135deg);  }
 
 
 

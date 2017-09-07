@@ -76,8 +76,67 @@
     width: 60%;
 }
 
+.tick-pans {
+  position: absolute;
+  width: 36%;
+  height: 32%;
+  top: 13px;
+  left: 11px;
+  z-index: 5;
+  overflow: visible;
+  /*background: red;*/
+}
+
+.tick-pans:after {
+  content: "";
+  width: 2px;
+  height: 9px;
+  background-color: rgba(255,255,255,.2);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transition: all 180ms ease-out;
+}
+
+.activeTick:after {
+  background-color: green;
+}
+
 .pan-knob {
   position: absolute;
   z-index: 1000;
   height: 60%;
 }
+
+.tick-pans:nth-child(1)  { transform: rotate(-135deg); }
+.tick-pans:nth-child(2)  { transform: rotate(-125deg); }
+.tick-pans:nth-child(3)  { transform: rotate(-115deg); }
+.tick-pans:nth-child(4)  { transform: rotate(-105deg); }
+.tick-pans:nth-child(5)  { transform: rotate(-95deg);  }
+.tick-pans:nth-child(6)  { transform: rotate(-85deg);  }
+.tick-pans:nth-child(7)  { transform: rotate(-75deg);  }
+.tick-pans:nth-child(8)  { transform: rotate(-65deg);  }
+.tick-pans:nth-child(9)  { transform: rotate(-55deg);  }
+.tick-pans:nth-child(10) { transform: rotate(-45deg);  }
+.tick-pans:nth-child(11) { transform: rotate(-35deg);  }
+.tick-pans:nth-child(12) { transform: rotate(-25deg);  }
+.tick-pans:nth-child(13) { transform: rotate(-15deg);  }
+.tick-pans:nth-child(14) { transform: rotate(-5deg);   }
+.tick-pans:nth-child(15) { transform: rotate(5deg);   }
+.tick-pans:nth-child(16) { transform: rotate(15deg);   }
+.tick-pans:nth-child(17) { transform: rotate(25deg);   }
+.tick-pans:nth-child(18) { transform: rotate(35deg);   }
+.tick-pans:nth-child(19) { transform: rotate(45deg);   }
+.tick-pans:nth-child(20) { transform: rotate(55deg);   }
+.tick-pans:nth-child(21) { transform: rotate(65deg);   }
+.tick-pans:nth-child(22) { transform: rotate(75deg);   }
+.tick-pans:nth-child(19) { transform: rotate(45deg);   }
+.tick-pans:nth-child(20) { transform: rotate(55deg);   }
+.tick-pans:nth-child(21) { transform: rotate(65deg);   }
+.tick-pans:nth-child(22) { transform: rotate(75deg);   }
+.tick-pans:nth-child(23) { transform: rotate(85deg);   }
+.tick-pans:nth-child(24) { transform: rotate(95deg);   }
+.tick-pans:nth-child(25) { transform: rotate(105deg);  }
+.tick-pans:nth-child(26) { transform: rotate(115deg);  }
+.tick-pans:nth-child(27) { transform: rotate(125deg);  }
+.tick-pans:nth-child(28) { transform: rotate(135deg);  }

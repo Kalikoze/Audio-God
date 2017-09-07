@@ -8,7 +8,8 @@ export default class TrackComponent extends Component {
     return (
       <div className={trackClass}>
         <div className='pan-container'>
-          <ControlKnob knobClass="pan" knobType='pan-knob'/>
+          <ControlKnob knobClass="pan" knobType='pan-knob'
+          ticks={"tick-pans"}/>
         </div>
         <div className="volume-container">
           <div className="volume-control">

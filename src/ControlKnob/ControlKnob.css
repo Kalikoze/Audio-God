@@ -1,23 +1,47 @@
 
 .control-knob1 {
-  background: yellow;
+  /*background: black;*/
+  position: absolute;
+  top: 44px;
+  left: 72px;
+  height: 102px;
 }
 
 .control-knob2 {
-  background: purple
+  /*background: purple;*/
+  position: absolute;
+  top: 44px;
+  left: 222px;
+  height: 102px;
 }
 .control-knob3 {
-  background: green
+  /*background: green;*/
+  position: absolute;
+  top: 44px;
+  left: 351px;
+  height: 102px;
 }
 .control-knob4 {
-  background: white
+  /*background: white;*/
+  position: absolute;
+  top: 196px;
+  left: 73px;
+  height: 102px;
 }
 .control-knob5 {
-  background: black
+  /*background: black;*/
+  position: absolute;
+  top: 196px;
+  left: 222px;
+  height: 102px;
 }
 
 .control-knob6 {
-  background: blue
+  /*background: blue;*/
+  position: absolute;
+  top: 196px;
+  left: 351px;
+  height: 102px;
 }
 
 /*@import url(https://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:300);
@@ -66,12 +90,12 @@ body {
 
 .knob-surround {
   position: relative;
-  background-color: grey;
-  width: 14em;
-  height: 14em;
+  /*background-color: grey;*/
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
-  border: solid .25em darken(@knob-colour, 4%);
-  margin: 5em auto;
+  /*border: solid .25em darken(@knob-colour, 4%);*/
+  /*margin: 5em auto;*/
   /*.gradient(@knob-colour, lighten(@knob-colour, 2%), darken(@knob-colour, 2%));
   .box-shadow(
     0 .2em .1em .05em rgba(255,255,255,.1) inset,
@@ -114,13 +138,13 @@ body {
 }
 
 .min {
-  bottom: 1em;
-  left: -2.5em;
+  bottom: -18px;
+  left: -15px;
 }
 
 .max {
-  bottom: 1em;
-  right: -2.5em;
+  bottom: -18px;
+  right: -18px;
 }
 
 .tick {
@@ -190,8 +214,10 @@ h1 {
 
 p {
   line-height: 150%;
-  max-width: 36em;
-  margin: 1em auto;
+  max-width: 7px;;
+  margin-top: 9px;
+  margin: auto;
+  color: green;
 }
 
 a {

@@ -10,16 +10,17 @@ export default class AudioEffects extends Component {
 
         <div className='track-controls-inner-box'>
           <img className='audio-controls-backdrop' alt='' src={AudioControlsBack}/>
+          <ControlKnob knobClass='control-knob1'/>
+          <ControlKnob knobClass='control-knob2'/>
+          <ControlKnob knobClass='control-knob3'/>
+          <ControlKnob knobClass='control-knob4'/>
+          <ControlKnob knobClass='control-knob5'/>
+          <ControlKnob knobClass='control-knob6'/>
         </div>
 
 
 
-        <ControlKnob knobClass='control-knob1'/>
-        <ControlKnob knobClass='control-knob2'/>
-        <ControlKnob knobClass='control-knob3'/>
-        <ControlKnob knobClass='control-knob4'/>
-        <ControlKnob knobClass='control-knob5'/>
-        <ControlKnob knobClass='control-knob6'/>
+
 
 
       </div>

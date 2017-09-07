@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './ControlKnob.css'
+import './ControlKnob.css';
+import audioKnob from '../assets/audio-knob.png';
 
 export default class ControlKnob extends Component {
   constructor() {
@@ -38,7 +39,7 @@ export default class ControlKnob extends Component {
       <div className={knobClass}>
 
         <div className="knob-surround">
-        <div className='knob' onWheel={e => this.moveKnob(e)}></div>
+        <img className='knob' src={audioKnob} onWheel={e => this.moveKnob(e)}/>
           <span className="min">Min</span>
           <span className="max">Max</span>
 
@@ -46,7 +47,7 @@ export default class ControlKnob extends Component {
             {ticksArray}
           </div>
         </div>
-        <p>Current value: <span className="current-value">{currentValue}</span></p>
+        <p><span className="current-value">{currentValue}</span></p>
       </div>
     )
   }

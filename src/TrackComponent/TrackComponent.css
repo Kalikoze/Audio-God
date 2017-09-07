@@ -1,6 +1,83 @@
-/*.track-component  {
-  width: 100%;
-  height: 73vh;
+.track-component1 {
+  background: red;
+  position: absolute;
+  height: 410px;
+  top: 25px;
+  left: 130px;
+  width: 100px;
+}
 
+.track-component2 {
+  background: red;
+  position: absolute;
+  height: 410px;
+  top: 25px;
+  left: 240px;
+  width: 100px;
+}
+
+.track-component3 {
+  background: red;
+  position: absolute;
+  height: 410px;
+  top: 25px;
+  left: 350px;
+  width: 100px;
+}
+
+.track-component4 {
+  background: red;
+  position: absolute;
+  height: 410px;
+  top: 25px;
+  left: 460px;
+  width: 100px;
+}
+
+.pan-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+  background: orange;
+}
+
+.volume-container {
+  width: 100%;
+  height: 60%;
   background: purple;
-}*/
+}
+
+.volume-control {
+  width: 50%;
+  display: inline-block;
+  height: 100%;
+  background: yellow;
+}
+
+.volume-display {
+  width: 50%;
+  display: inline-block;
+  height: 100%;
+  background: green;
+}
+
+.lower-control-container {
+  height: 20%;
+  width: 100%;
+  background: blue;
+}
+
+.pan {
+  top: 44px;
+    left: 72px;
+    height: 72%;
+    width: 60%;
+}
+
+.pan-knob {
+  position: absolute;
+  z-index: 1000;
+  height: 60%;
+}

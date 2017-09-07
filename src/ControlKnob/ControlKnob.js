@@ -13,7 +13,7 @@ export default class ControlKnob extends Component {
   }
 
   moveKnob(e) {
-    const { angle, activeTicks } = this.state;
+    const { angle } = this.state;
     const minangle = angle - 2 >= 0 ? angle - 2 : 0;
     const maxangle = angle + 2 <= 270 ? angle + 2 : 270;
 
@@ -31,15 +31,20 @@ export default class ControlKnob extends Component {
   }
 
   render() {
-    const { tick, currentValue, ticksArray } = this.state;
-    const { knobClass } = this.props;
-    console.log(ticksArray)
+    const { angle, currentValue, ticksArray } = this.state;
+    const { knobClass, knobType } = this.props;
+    // console.log(ticksArray)
+
+    const y = angle;
+    const styles = {
+      transform: `rotate(${y}deg)`
+    };
 
     return (
       <div className={knobClass}>
 
         <div className="knob-surround">
-        <img className='knob' src={audioKnob} onWheel={e => this.moveKnob(e)}/>
+        <img className={knobType} src={audioKnob} style={styles}  onWheel={e => this.moveKnob(e)}/>
           <span className="min">Min</span>
           <span className="max">Max</span>
 

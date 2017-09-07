@@ -9,9 +9,10 @@
 }
 
 .controls-component-background  {
-  width: 66%;
+  width: 78%;
   height: 90%;
   /*background: red;*/
+  left: 44px;
   position: relative;
   overflow: hidden;
   border-radius: 30px;

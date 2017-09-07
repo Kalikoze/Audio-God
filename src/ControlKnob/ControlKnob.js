@@ -64,11 +64,11 @@ export default class ControlKnob extends Component {
   // });
 
   render() {
-
     const { tick, knob, currentValue } = this.state;
+    const { knobClass } = this.props
 
     return (
-      <div className='control-knob'>
+      <div className={knobClass}>
 
         <div className="knob-surround">
         <div className={knob}></div>

@@ -1,5 +1,22 @@
-.control-knob {
+.control-knob1 {
+  background: yellow;
+}
 
+.control-knob2 {
+  background: purple
+}
+.control-knob3 {
+  background: green
+}
+.control-knob4 {
+  background: white
+}
+.control-knob5 {
+  background: black
+}
+
+.control-knob6 {
+  background: blue
 }
 
 /*@import url(https://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:300);

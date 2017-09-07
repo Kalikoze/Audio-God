@@ -52,7 +52,9 @@ export default class ControlKnob extends Component {
             {ticksArray}
           </div>
         </div>
-        <p><span className="current-value">{currentValue}</span></p>
+        <div className='value-container'>
+          <p><span className="current-value">{currentValue}</span></p>
+        </div>
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Visualizer from '../Visualizer/Visualizer';
 import AudioEffects from '../AudioEffects/AudioEffects';
 import Mixer from '../Mixer/Mixer';
+import Controls from '../Controls/Controls';
 import SoundLibrary from '../SoundLibrary/SoundLibrary';
 import './App.css'
 import backgroundImage from '../assets/dark-wood.jpg'
@@ -21,8 +22,11 @@ class App extends Component {
                 <AudioEffects />
                 <SoundLibrary />
               </div>
+              <div className='lower-control-right-box'>
+              <Controls />
                 <Mixer />
-            </div>  
+              </div>
+            </div>
           </div>
       </div>
     );

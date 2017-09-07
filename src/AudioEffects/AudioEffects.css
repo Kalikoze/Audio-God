@@ -1,6 +1,6 @@
 .track-controls {
   width: 100%;
-  height: 75%;
+  height: 70%;
   /*background: blue;*/
   display: flex;
   align-items: center;
@@ -18,4 +18,5 @@
   width: 580px;
   height: 342px;
   border-radius: 31px;
+  border: solid 2px #666666;
 }

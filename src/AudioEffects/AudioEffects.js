@@ -13,12 +13,7 @@ export default class AudioEffects extends Component {
         </div>
 
 
-        <ControlKnob />
-        <ControlKnob />
-        <ControlKnob />
-        <ControlKnob />
-        <ControlKnob />
-        <ControlKnob />
+
 
       </div>
     )

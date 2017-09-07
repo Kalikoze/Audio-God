@@ -209,6 +209,28 @@ body {
 .tick-effects:nth-child(28) { transform: rotate(135deg);  }
 
 
+.value-container  {
+  position: absolute;
+  top: 107px;
+  left: 30px;
+  width: 34px;
+  height: 15px;
+  background: black;
+  border-radius: 5px;
+  border: solid 1px #666666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-value  {
+  font-size: 16px;
+  /* margin: 0 0 0 0; */
+  /*top: 105px;
+  left: 39px;
+  position: absolute;*/
+  /* padding: 10px 0 0 0; */
+}
 
 h1 {
   font-weight: normal;
@@ -216,10 +238,10 @@ h1 {
 }
 
 p {
-  line-height: 150%;
-  max-width: 7px;;
+  /*line-height: 150%;*/
+  /*max-width: 7px;;
   margin-top: 9px;
-  margin: auto;
+  margin: auto;*/
   color: green;
 }
 

@@ -17,13 +17,13 @@ class App extends Component {
         </div>
         <div className='component-container'>
           <Visualizer />
-            <div className='controls'>
+            <div className='controls-container'>
               <div className='lower-control-left-box'>
                 <AudioEffects />
                 <SoundLibrary />
               </div>
               <div className='lower-control-right-box'>
-              <Controls />
+                <Controls />
                 <Mixer />
               </div>
             </div>

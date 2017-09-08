@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './Controls.css';
 import blackBackground from '../assets/black-background.jpg';
 import goldButton from '../assets/goldButton.png';
+import DisplayLoginContainer from '../Containers/DisplayLoginContainer'
 
-export default class Controls extends Component {
+class Controls extends Component {
   render() {
+    const { displayLogin, renderLogin } = this.props
     return (
       <div className="controls">
         <div className='upper-button-container'>
-          <div className='login-button-container'>
+          <div className='login-button-container' onClick={() => displayLogin ? renderLogin(false) : renderLogin(true)}>
             <div className='controls-button-glass'>
               <p className='control-button-label'>LOGIN</p>
             </div>
@@ -54,3 +56,5 @@ export default class Controls extends Component {
     )
   }
 }
+
+export default DisplayLoginContainer(Controls);

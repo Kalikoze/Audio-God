@@ -263,6 +263,8 @@ border-radius: 5px;
   position: absolute;
   z-index: 1000;
   height: 60%;
+  top: 0px;
+  left: 0px;
 }
 
 .pan-value {

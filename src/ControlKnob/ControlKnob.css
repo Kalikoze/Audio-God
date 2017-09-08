@@ -107,12 +107,12 @@ body {
 }
 
 .knob-effects {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  /*.transform(rotate(0deg));*/
-  z-index: 10;
+  position: absolute;
+width: 100%;
+height: 100%;
+top: 0px;
+border-radius: 50%;
+z-index: 10;
 }
 
 .knob:before {
@@ -234,6 +234,12 @@ h2 {
   justify-content: center;
 }
 
+.image  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .current-value  {
   font-size: 16px;
   /* margin: 0 0 0 0; */
@@ -243,10 +249,19 @@ h2 {
   /* padding: 10px 0 0 0; */
 }
 
+
 .knob-label {
   font-family: 'Lobster', cursive;
-  font-size: 14px;
-  color: white;
+font-size: 14px;
+color: white;
+position: absolute;
+top: 39px;
+z-index: 15;
+background: black;
+width: 59%;
+border: 1px solid #666;
+text-align: center;
+border-radius: 5px;
 }
 
 h1 {

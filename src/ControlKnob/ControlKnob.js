@@ -48,7 +48,7 @@ export default class ControlKnob extends Component {
 
         <div className="image" onWheel={e => this.moveKnob(e)}>
           <img className={knobType} src={audioKnob} alt='' style={styles}/>
-          <h2 className='knob-label' style={styles}>{effect}</h2>
+          <p className='knob-label' style={styles}>{effect}</p>
         </div>
           {ticks === "tick-effects" ? <span className="min">Min</span> : ''}
           {ticks === "tick-effects" ? <span className="max">Max</span> : ''}

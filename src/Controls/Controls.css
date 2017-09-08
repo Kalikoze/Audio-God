@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .controls-component-background  {
@@ -24,4 +25,135 @@
   height: 100%;
   position: absolute;
   z-index: 1;
+}
+
+.gold-button-bezel  {
+  width: 68%;
+  position: absolute;
+  z-index: 100;
+}
+
+.controls-button-glass  {
+  width: 67%;
+  border-radius: 10px;
+  height: 56%;
+  position: absolute;
+  z-index: 99;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 9px 4px 23px #5d4837;
+  animation-name: controlsButtonGlass;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes controlsButtonGlass {
+  0% {
+      box-shadow: inset 9px 4px 18px #5d4837;
+  }
+
+  100% {
+      box-shadow: inset 9px 4px 23px #5d4837;
+  }
+}
+
+
+.control-button-label {
+  font-family: "Varela Round", sans-serif;
+  font-size: 12px;
+  color: black;
+}
+
+.upper-button-container {
+  height: 45%;
+    width: 74%;
+    top: 4px;
+    left: 122px;
+    z-index: 2;
+    /*background: green;*/
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-button-container {
+  width: 33.333%;
+  height: 100%;
+  /*background: red;*/
+  left: 0px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-button-container {
+  width: 33.333%;
+  height: 100%;
+  /*background: red;*/
+  left: 148px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logOut-button-container {
+  width: 33.333%;
+  height: 100%;
+  /*background: red;*/
+  left: 296px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lower-button-container {
+  height: 45%;
+    width: 74%;
+    top: 41px;
+    left: 122px;
+    z-index: 2;
+    /*background: orange;*/
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-button-container {
+  width: 33.333%;
+  height: 100%;
+  /*background: red;*/
+  left: 0px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.save-button-container {
+  width: 33.333%;
+  height: 100%;
+  /*background: red;*/
+  left: 148px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saveAs-button-container {
+  width: 33.333%;
+  height: 100%;
+  /*background: red;*/
+  left: 296px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

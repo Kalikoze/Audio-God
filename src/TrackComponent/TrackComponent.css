@@ -1,5 +1,4 @@
 .track-component1 {
-  background: red;
   position: absolute;
   height: 410px;
   top: 25px;
@@ -8,7 +7,6 @@
 }
 
 .track-component2 {
-  background: red;
   position: absolute;
   height: 410px;
   top: 25px;
@@ -17,7 +15,6 @@
 }
 
 .track-component3 {
-  background: red;
   position: absolute;
   height: 410px;
   top: 25px;
@@ -26,7 +23,6 @@
 }
 
 .track-component4 {
-  background: red;
   position: absolute;
   height: 410px;
   top: 25px;
@@ -40,7 +36,6 @@
   align-items: center;
   justify-content: center;
   height: 20%;
-  background: orange;
 }
 
 .volume-container {
@@ -106,6 +101,28 @@
   position: absolute;
   z-index: 1000;
   height: 60%;
+}
+
+.pan-value {
+  position: absolute;
+  top: 67px;
+  left: 30px;
+  width: 34px;
+  height: 15px;
+  background: black;
+  border-radius: 5px;
+  border: solid 1px #666666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fader {
+  position: absolute;
+  top: 200px;
+  left: -75px;
+  width: 200px;
+  transform: rotate(90deg)
 }
 
 .tick-pans:nth-child(1)  { transform: rotate(-135deg); }

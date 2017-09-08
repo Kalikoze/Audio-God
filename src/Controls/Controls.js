@@ -7,7 +7,7 @@ export default class Controls extends Component {
     return (
       <div className="controls">
         <div className='controls-component-background'>
-          <img className='black-background-controls' src={blackBackground}/>
+          <img className='black-background-controls' alt='' src={blackBackground}/>
         </div>
       </div>
     )

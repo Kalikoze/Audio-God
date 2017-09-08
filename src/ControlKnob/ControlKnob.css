@@ -137,7 +137,9 @@ h2 {
 }
 
 .min,
-.max {
+.max,
+.left,
+.right {
   display: block;
   font-family: "Varela Round", sans-serif;
   color: rgba(255,255,255,.4);
@@ -186,6 +188,17 @@ h2 {
   .transition(all 50ms ease-in);*/
 }
 
+.left {
+  bottom: 25px;
+  left: 2px;
+
+}
+
+.right {
+  bottom: 25px;
+  right: 42px;
+}
+
 .tick-effects:nth-child(1)  { transform: rotate(-135deg); }
 .tick-effects:nth-child(2)  { transform: rotate(-125deg); }
 .tick-effects:nth-child(3)  { transform: rotate(-115deg); }
@@ -219,7 +232,6 @@ h2 {
 .tick-effects:nth-child(27) { transform: rotate(125deg);  }
 .tick-effects:nth-child(28) { transform: rotate(135deg);  }
 
-
 .effects-value  {
   position: absolute;
   top: 107px;
@@ -240,8 +252,14 @@ h2 {
   justify-content: center;
 }
 
+@font-face {
+  font-family: 'alarm-clock';
+  src: url('../assets/alarm-clock.ttf')
+}
+
 .current-value  {
   font-size: 16px;
+  font-family: 'alarm-clock';
   /* margin: 0 0 0 0; */
   /*top: 105px;
   left: 39px;

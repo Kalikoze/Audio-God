@@ -9,10 +9,11 @@ export default class TrackComponent extends Component {
       <div className={trackClass}>
         <div className='pan-container'>
           <ControlKnob knobClass="pan" knobType='pan-knob'
-          ticks={"tick-pans"}/>
+          ticks={"tick-pans"} valueContainer='pan-value'/>
         </div>
         <div className="volume-container">
           <div className="volume-control">
+            <input type='range' className='fader'/>
           </div>
           <div className="volume-display">
           </div>

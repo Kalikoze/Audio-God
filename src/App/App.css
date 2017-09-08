@@ -15,6 +15,13 @@
   justify-content: center;
 }
 
+body  {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+}
+
 .background-container {
   width: 100%;
     min-width: 1200px;

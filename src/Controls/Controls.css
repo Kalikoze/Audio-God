@@ -39,7 +39,8 @@
   height: 56%;
   position: absolute;
   z-index: 99;
-  background: white;
+  background: orange;
+  opacity: .7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,10 +53,15 @@
 @keyframes controlsButtonGlass {
   0% {
       box-shadow: inset 9px 4px 18px #5d4837;
+      opacity: 1;
   }
-
+  50% {
+      box-shadow: inset 9px 4px 23px #5d4837;
+      opacity: .7;
+  }
   100% {
       box-shadow: inset 9px 4px 23px #5d4837;
+      opacity: 1;
   }
 }
 
@@ -63,7 +69,7 @@
 .control-button-label {
   font-family: "Varela Round", sans-serif;
   font-size: 12px;
-  color: black;
+  color: white;
 }
 
 .upper-button-container {
@@ -90,6 +96,14 @@
   justify-content: center;
 }
 
+.login-button-container:hover {
+  cursor: pointer;
+}
+
+.login-button-container:hover .login-glass  {
+  background: green;
+}
+
 .create-button-container {
   width: 33.333%;
   height: 100%;
@@ -101,6 +115,14 @@
   justify-content: center;
 }
 
+.create-button-container:hover {
+  cursor: pointer;
+}
+
+.create-button-container:hover .create-glass  {
+  background: green;
+}
+
 .logOut-button-container {
   width: 33.333%;
   height: 100%;
@@ -110,6 +132,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logOut-button-container:hover {
+  cursor: pointer;
+}
+
+.logOut-button-container:hover .logOut-glass  {
+  background: green;
 }
 
 .lower-button-container {
@@ -136,6 +166,14 @@
   justify-content: center;
 }
 
+.upload-button-container:hover {
+  cursor: pointer;
+}
+
+.upload-button-container:hover .upload-glass  {
+  background: green;
+}
+
 .save-button-container {
   width: 33.333%;
   height: 100%;
@@ -147,6 +185,14 @@
   justify-content: center;
 }
 
+.save-button-container:hover {
+  cursor: pointer;
+}
+
+.save-button-container:hover .save-glass  {
+  background: green;
+}
+
 .saveAs-button-container {
   width: 33.333%;
   height: 100%;
@@ -156,4 +202,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.saveAs-button-container:hover {
+  cursor: pointer;
+}
+
+.saveAs-button-container:hover .saveAs-glass  {
+  background: green;
 }

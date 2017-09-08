@@ -19,6 +19,32 @@
   width: 73%;
 }
 
+.speaker-inner-cone  {
+  width: 33%;
+  position: absolute;
+  animation-name: speaker;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes speaker {
+  0% {
+    transform: scale(1.04);
+  }
+  30% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  80% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .right-speaker-box {
   width: 25%;
   height: 100%;
@@ -50,7 +76,7 @@
   top: -55px;
   box-shadow: inset 0px 0px 200px black;
   animation-name: introVideo;
-  animation-duration: 10s;
+  animation-duration: 6s;
 }
 
 @keyframes introVideo {
@@ -65,5 +91,27 @@
   100% {
     /*display: none;*/
     opacity: 0;
+  }
+}
+
+.logo {
+  position: absolute;
+  width: 100%;
+  opacity: 1;
+  top: 21px;
+  animation-name: intrologo;
+  animation-duration: 4s;
+  z-index: 2;
+}
+
+@keyframes intrologo {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

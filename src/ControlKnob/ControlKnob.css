@@ -44,6 +44,8 @@
   height: 102px;
 }
 
+
+
 /*@import url(https://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:300);
 
 @knob-colour: #181818;
@@ -239,6 +241,12 @@ h2 {
   left: 39px;
   position: absolute;*/
   /* padding: 10px 0 0 0; */
+}
+
+.knob-label {
+  font-family: 'Lobster', cursive;
+  font-size: 14px;
+  color: white;
 }
 
 h1 {

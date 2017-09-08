@@ -1,4 +1,4 @@
-.login-container  {
+.create-account-container  {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -8,7 +8,7 @@
   z-index: 4;
 }
 
-.close-button {
+/*.close-button {
   position: absolute;
     top: 8px;
     right: 10px;
@@ -27,9 +27,18 @@
     -ms-flex-pack: center;
     justify-content: center;
     font-family: "Varela Round", sans-serif;
+}*/
+
+.create-name {
+  position: absolute;
+    top: 30px;
+    left: 157px;
+    width: 300px;
+    height: 25px;
+    z-index: 100;
 }
 
-.login-username {
+.create-username {
   position: absolute;
     top: 70px;
     left: 157px;
@@ -38,7 +47,7 @@
     z-index: 100;
 }
 
-.login-password {
+.create-password {
   position: absolute;
     top: 110px;
     left: 157px;
@@ -47,23 +56,23 @@
     z-index: 100;
 }
 
-.login-button {
+.create-button {
   position: absolute;
-top: 154px;
-right: 216px;
-z-index: 100;
-height: 30px;
-font-size: 27px;
-width: 123px;
-background: red;
-border-radius: 20px;
-color: white;
-border: solid 2px #666;
-display: -ms-flexbox;
-display: flex;
--ms-flex-align: center;
-align-items: center;
--ms-flex-pack: center;
-justify-content: center;
-font-family: "Varela Round", sans-serif;
-}
+      top: 154px;
+      right: 147px;
+      z-index: 100;
+      height: 30px;
+      font-size: 27px;
+      width: 277px;
+      background: red;
+      border-radius: 20px;
+      color: white;
+      border: solid 2px #666;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-family: "Varela Round", sans-serif;
+  }

@@ -7,19 +7,17 @@ import DisplayLoginContainer from '../Containers/DisplayLoginContainer'
 class Controls extends Component {
   render() {
     const { displayLogin, renderLogin } = this.props
+
     return (
       <div className="controls">
         <div className='upper-button-container'>
-
-
-          <div className='login-button-container' onClick={() => displayLogin ? renderLogin(false) : renderLogin(true)}>
+          <div className='login-button-container' onClick={() => renderLogin(true, false)}>
             <div className='controls-button-glass login-glass'>
-
               <p className='control-button-label'>LOGIN</p>
             </div>
             <img className='gold-button-bezel' alt='' src={goldButton}/>
           </div>
-          <div className='create-button-container'>
+          <div className='create-button-container' onClick={() => renderLogin(false, true)}>
             <div className='controls-button-glass create-glass'>
               <p className='control-button-label'>CREATE ACCT</p>
             </div>

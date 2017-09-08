@@ -5,11 +5,15 @@ import SpeakerCone from '../assets/speaker-cone.png';
 import blackBackground from '../assets/black-background.jpg';
 import introVideo from '../assets/video1.mp4';
 import logo from '../assets/AUDIO-GOD.png';
+import Login from '../Login/Login'
+import DisplayLoginContainer from '../Containers/DisplayLoginContainer';
 
-export default class Visualizer extends Component {
+class Visualizer extends Component {
   render() {
+    const { displayLogin } = this.props
     return (
       <div className="visualizer">
+      {displayLogin ? <Login /> : ''}
         <div className='left-speaker-box'>
           <img className='speaker' alt='' src={Speaker}/>
           <img className='speaker-inner-cone' alt='' src={SpeakerCone}/>
@@ -30,3 +34,5 @@ export default class Visualizer extends Component {
     )
   }
 }
+
+export default DisplayLoginContainer(Visualizer)

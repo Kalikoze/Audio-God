@@ -46,7 +46,7 @@ export default class ControlKnob extends Component {
       <div className={knobClass}>
 
         <div className="knob-surround">
-        <img className={knobType} src={audioKnob} style={styles}  onWheel={e => this.moveKnob(e)}/>
+        <img className={knobType} src={audioKnob} style={styles}  onWheel={e => this.moveKnob(e)} />
           <span className="min">Min</span>
           <span className="max">Max</span>
 

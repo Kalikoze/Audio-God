@@ -34,9 +34,7 @@ export default class ControlKnob extends Component {
 
   render() {
     const { angle, currentValue, ticksArray } = this.state;
-    const { knobClass, knobType } = this.props;
-    // console.log(ticksArray)
-
+    const { knobClass, knobType, effect, ticks, valueContainer } = this.props;
     const y = angle;
     const styles = {
       transform: `rotate(${y}deg)`
@@ -46,15 +44,20 @@ export default class ControlKnob extends Component {
       <div className={knobClass}>
 
         <div className="knob-surround">
-        <img className={knobType} src={audioKnob} style={styles}  onWheel={e => this.moveKnob(e)} />
-          <span className="min">Min</span>
-          <span className="max">Max</span>
+
+
+        <div className="image" onWheel={e => this.moveKnob(e)}>
+          <img className={knobType} src={audioKnob} alt='' style={styles}/>
+          <h2 style={styles}>{effect}</h2>
+        </div>
+          {ticks === "tick-effects" ? <span className="min">Min</span> : ''}
+          {ticks === "tick-effects" ? <span className="max">Max</span> : ''}
 
           <div className="ticks">
             {ticksArray}
           </div>
         </div>
-        <div className='value-container'>
+        <div className={valueContainer}>
           <p><span className="current-value">{currentValue}</span></p>
         </div>
       </div>

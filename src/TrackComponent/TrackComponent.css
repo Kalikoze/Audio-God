@@ -216,6 +216,7 @@ border-radius: 5px;
   }
   60% {
       box-shadow: inset 0px 0px 8px black;
+      background: orange;
   }
   90% {
       box-shadow: inset 0px 0px 2px black;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ControlKnob from '../ControlKnob/ControlKnob'
 import './AudioEffects.css'
 import AudioControlsBack from '../assets/audio-effects-background.png';
+import scale from '../assets/scale.png';
 
 export default class AudioEffects extends Component {
   render() {
@@ -10,6 +11,8 @@ export default class AudioEffects extends Component {
 
         <div className='track-controls-inner-box'>
           <img className='audio-controls-backdrop' alt='' src={AudioControlsBack}/>
+          <img className='scale' alt='' src={scale}/>
+          <div className='scale-backdrop'></div>
           <ControlKnob knobClass='control-knob1' knobType='knob-effects' ticks="tick-effects"
           effect='Reverb' valueContainer='effects-value'/>
           <ControlKnob knobClass='control-knob2' knobType='knob-effects' ticks="tick-effects"

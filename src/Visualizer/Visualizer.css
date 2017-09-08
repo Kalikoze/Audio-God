@@ -20,7 +20,7 @@
 }
 
 .speaker-inner-cone  {
-  width: 33%;
+  width: 24%;
   position: absolute;
   animation-name: speaker;
   animation-duration: 1s;

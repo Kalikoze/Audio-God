@@ -1,16 +1,20 @@
 import { connect } from 'react-redux';
-import { createAccount } from '../actions/index';
+import { createAccount, errorMessage } from '../actions/index';
 
 const mapStateToProps = (store) => {
   return {
     loginEval: store.loginEval,
+    errorMessage: store.errorMessage
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createAccount: (user, bool, error) => {
-      dispatch(createAccount(user, bool, error))
+    createAccount: (user, bool) => {
+      dispatch(createAccount(user, bool))
+    },
+    createErrorMessage: (error) => {
+      dispatch(errorMessage(error))
     }
   }
 }

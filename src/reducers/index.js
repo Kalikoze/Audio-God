@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import { displayLogin, loginEval } from './reducers'
+import { displayLogin, loginEval, errorMessage } from './reducers'
 
 const rootReducer = combineReducers({
   displayLogin,
-  loginEval
+  loginEval,
+  errorMessage
 })
 
 export default rootReducer

@@ -3,10 +3,20 @@ import './Controls.css';
 import blackBackground from '../assets/black-background.jpg';
 import goldButton from '../assets/goldButton.png';
 import DisplayLoginContainer from '../Containers/DisplayLoginContainer'
+import firebase from '../firebase'
 
 class Controls extends Component {
+
+  signOut() {
+    firebase.auth().signOut().then(function() {
+      console.log('signout fired!')
+    }).catch(function(error) {
+      console.log('error with signing out', error)
+    });
+  }
+
   render() {
-    const { displayLogin, renderLogin } = this.props
+    const { renderLogin } = this.props
 
     return (
       <div className="controls">
@@ -23,7 +33,7 @@ class Controls extends Component {
             </div>
             <img className='gold-button-bezel' alt='' src={goldButton}/>
           </div>
-          <div className='logOut-button-container'>
+          <div className='logOut-button-container' onClick={() => this.signOut()}>
             <div className='controls-button-glass logOut-glass'>
               <p className='control-button-label'>LOGOUT</p>
             </div>

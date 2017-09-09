@@ -9,9 +9,8 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createAccount: (user, bool) => {
-      console.log(user, bool)
-      dispatch(createAccount(user, bool))
+    createAccount: (user, bool, error) => {
+      dispatch(createAccount(user, bool, error))
     }
   }
 }

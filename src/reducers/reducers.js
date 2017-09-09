@@ -8,10 +8,10 @@ export const displayLogin = (state={isLoginDisplayed: false, isCreateDisplayed: 
   }
 }
 
-export const loginEval = (state={email: '', bool: false}, action) => {
+export const loginEval = (state={email: '', bool: false, error: ''}, action) => {
   switch(action.type) {
     case 'CREATE_ACCOUNT':
-      return {user: action.email, bool: action.bool}
+      return {user: action.email, bool: action.bool, error: action.error}
 
     default:
       return state

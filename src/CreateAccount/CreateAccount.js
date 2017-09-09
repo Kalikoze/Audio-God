@@ -20,28 +20,27 @@ class CreateAccount extends Component {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
-      console.log(errorCode, errorMessage)
+      createAccount('', false, 'Invalid Email or Password')
     });
 
     var user = firebase.auth().currentUser;
 
     if (user) {
-      // console.log(user.email)
-      createAccount('travis', true)
+      createAccount(user.email, true, '')
     } else {
-      console.log('not signed in', user)
+      createAccount('', false, 'Invalid Email or Password')
     }
   }
 
   render() {
     const { email, password } = this.state;
-    const { renderLogin } = this.props
-    console.log(this.props)
+    const { renderLogin, loginEval } = this.props
 
     return (
       <div className='create-account-container'>
       <img className='black-background' alt='' src={blackBackground}/>
         <div className='close-button' onClick={() => renderLogin(false, false)}>X</div>
+        {loginEval.error ? <p className='error'>{loginEval.error}</p> : null}
         <input type='email' className='create-username' placeholder='  Username' value={email} onChange={e => this.setState({email: e.target.value})}/>
         <input className='create-password' placeholder='  Password'  type='password' value={password} onChange={e => this.setState({password: e.target.value})}/>
         <div className='create-button' onClick={() => this.createAccount(email, password)}>CREATE ACCOUNT</div>
@@ -51,3 +50,5 @@ class CreateAccount extends Component {
 }
 
 export default LoginEvalContainer(DisplayLoginContainer(CreateAccount))
+
+// {loginEval.bool ? <p>loginEval.user</p> : null}

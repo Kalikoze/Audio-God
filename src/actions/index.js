@@ -6,11 +6,17 @@ export const displayLogin = (bool1, bool2) => {
   }
 }
 
-export const createAccount = (email, bool, error) => {
+export const createAccount = (email, bool) => {
   return {
     type: 'CREATE_ACCOUNT',
     email,
     bool,
+  }
+}
+
+export const errorMessage = (error) => {
+  return {
+    type: 'ERROR_MESSAGE',
     error
   }
 }

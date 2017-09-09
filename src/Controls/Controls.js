@@ -3,31 +3,40 @@ import './Controls.css';
 import blackBackground from '../assets/black-background.jpg';
 import goldButton from '../assets/goldButton.png';
 import DisplayLoginContainer from '../Containers/DisplayLoginContainer'
-import firebase from '../firebase'
+import firebase from '../firebase';
+import LoginEvalContainer from '../Containers/LoginEvalContainer'
 
 class Controls extends Component {
 
   signOut() {
+    const { createAccount, renderLogin, createErrorMessage } = this.props
     firebase.auth().signOut().then(function() {
-      console.log('signout fired!')
+      createAccount('', false)
+      renderLogin(false, false);
+      createErrorMessage('')
+
     }).catch(function(error) {
-      console.log('error with signing out', error)
+      alert('Logout failed')
     });
   }
 
+
+
+
+
   render() {
-    const { renderLogin } = this.props
+    const { renderLogin, createErrorMessage } = this.props
 
     return (
       <div className="controls">
         <div className='upper-button-container'>
-          <div className='login-button-container' onClick={() => renderLogin(true, false)}>
+          <div className='login-button-container' onClick={() => (renderLogin(true, false), createErrorMessage(''))}>
             <div className='controls-button-glass login-glass'>
               <p className='control-button-label'>LOGIN</p>
             </div>
             <img className='gold-button-bezel' alt='' src={goldButton}/>
           </div>
-          <div className='create-button-container' onClick={() => renderLogin(false, true)}>
+          <div className='create-button-container' onClick={() => (renderLogin(false, true), createErrorMessage(''))}>
             <div className='controls-button-glass create-glass'>
               <p className='control-button-label'>CREATE ACCT</p>
             </div>
@@ -68,4 +77,4 @@ class Controls extends Component {
   }
 }
 
-export default DisplayLoginContainer(Controls);
+export default LoginEvalContainer(DisplayLoginContainer(Controls));

@@ -8,6 +8,13 @@
   z-index: 4;
 }
 
+.error {
+  position: absolute;
+  z-index: 1001;
+  font-size: 100px;
+  color: white;
+}
+
 /*.close-button {
   position: absolute;
     top: 8px;

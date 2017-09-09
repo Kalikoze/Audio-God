@@ -6,9 +6,11 @@ export const displayLogin = (bool1, bool2) => {
   }
 }
 
-// export const displayCreate = (bool) => {
-//     return {
-//       type: 'DISPLAY_CREATE',
-//       isCreateDisplayed: bool
-//     }
-// }
+export const createAccount = (email, bool, error) => {
+  return {
+    type: 'CREATE_ACCOUNT',
+    email,
+    bool,
+    error
+  }
+}

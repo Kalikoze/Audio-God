@@ -8,10 +8,11 @@ import logo from '../assets/AUDIO-GOD.png';
 import Login from '../Login/Login'
 import CreateAccount from '../CreateAccount/CreateAccount'
 import DisplayLoginContainer from '../Containers/DisplayLoginContainer';
+import LoginEvalContainer from '../Containers/LoginEvalContainer';
 
 class Visualizer extends Component {
   render() {
-    const { displayLogin } = this.props
+    const { displayLogin, loginEval } = this.props
     return (
       <div className="visualizer">
 
@@ -21,8 +22,8 @@ class Visualizer extends Component {
           <img className='speaker-inner-cone' alt='' src={SpeakerCone}/>
         </div>
         <div className='visualizer-box'>
-          {!displayLogin.isCreateDisplayed && displayLogin.isLoginDisplayed ? <Login /> : ''}
-          {!displayLogin.isLoginDisplayed && displayLogin.isCreateDisplayed ? <CreateAccount /> : ''}
+          {!loginEval.bool && !displayLogin.isCreateDisplayed && displayLogin.isLoginDisplayed ? <Login /> : ''}
+          {!loginEval.bool && !displayLogin.isLoginDisplayed && displayLogin.isCreateDisplayed ? <CreateAccount /> : ''}
           <img className='black-background' alt='' src={blackBackground}/>
           <img className='logo' alt='' src={logo}/>
           <video poster={introVideo} className='intro-video' id="bgvid" playsInline autoPlay>
@@ -39,4 +40,4 @@ class Visualizer extends Component {
   }
 }
 
-export default DisplayLoginContainer(Visualizer)
+export default LoginEvalContainer(DisplayLoginContainer(Visualizer))

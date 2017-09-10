@@ -20,3 +20,17 @@ export const errorMessage = (error) => {
     error
   }
 }
+
+export const sounds = (sound) => {
+  return {
+    type: 'SOUNDS',
+    sound
+  }
+}
+
+export const soundsArray = (sounds) => {
+  return {
+    type: 'SOUNDS_ARRAY',
+    sounds
+  }
+}

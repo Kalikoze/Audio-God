@@ -1,7 +1,6 @@
 .sound-library  {
   width: 100%;
   height: 30%;
-  /*background: yellow;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,4 +22,44 @@ border: solid 2px #666666;
   height: 100%;
   position: absolute;
   z-index: -2;
+}
+
+.audio {
+  z-index: 2000;
+}
+
+.sounds {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll
+}
+
+.sound-container {
+  cursor: pointer;
+  color: white;
+}
+
+.sound-container:hover {
+  background: white;
+  color: black
+}
+
+.melodic-samples {
+  /*position: absolute;*/
+  float: left;
+  z-index: 3001;
+  color: white;
+  border: 1px white solid;
+  width: 49%;
+  height: 20px;
+}
+
+.drum-samples {
+  /*position: absolute;*/
+  float: left;
+  z-index: 3001;
+  color: white;
+  border: 1px white solid;
+  width: 49%;
+  height: 20px;
 }

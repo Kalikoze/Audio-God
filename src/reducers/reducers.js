@@ -27,3 +27,23 @@ export const errorMessage = (state='', action) => {
       return state
   }
 }
+
+export const sounds = (state=[], action) => {
+  switch(action.type) {
+    case 'SOUNDS':
+      return [...state, action.sound]
+
+    default:
+      return state
+  }
+}
+
+export const soundsArray = (state=[], action) => {
+  switch(action.type) {
+    case 'SOUNDS_ARRAY':
+      return [...action.sounds]
+
+    default:
+      return state;
+  }
+}

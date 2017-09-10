@@ -63,6 +63,8 @@ border-radius: 5px;
   position: relative;
 }
 
+
+
 .fader {
   position: absolute;
   top: 101px;
@@ -83,6 +85,26 @@ border-radius: 5px;
   display: inline-block;
   height: 100%;
   /*background: green;*/
+}
+
+.volume-display-container {
+  position: absolute;
+top: 37px;
+left: 59px;
+width: 142px;
+width: 14px;
+height: 143px;
+/* -webkit-transform: rotate(90deg); */
+-ms-transform: rotate(90deg);
+/* transform: rotate(90deg); */
+border-radius: 5px;
+background: red;
+/* outline: none; */
+/* opacity: 0.75; */
+  box-shadow: inset 0px 0px 13px black;
+  animation-name: sampleGlass;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
 }
 
 .lower-control-container {

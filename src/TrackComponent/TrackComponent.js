@@ -40,6 +40,8 @@ class TrackComponent extends Component {
             <input type='range' className='fader'/>
           </div>
           <div className="volume-display">
+            <div className='volume-display-container'>
+            </div>
           </div>
         </div>
         <div className='lower-control-container'>

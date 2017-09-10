@@ -4,8 +4,29 @@
   left: 0px;
   width: 100%;
   height: 100%;
-  background: red;
+  /*background: red;*/
   z-index: 4;
+  animation-name: loginSlide;
+  animation-duration: .5s;
+}
+
+@keyframes loginSlide {
+  0% {
+      left: -1000px;
+  }
+  100% {
+      left: 0px;
+  }
+}
+
+.error {
+  position: absolute;
+font-family: "Varela Round", sans-serif;
+z-index: 1001;
+top: 43px;
+left: 220px;
+font-size: 16px;
+color: red;
 }
 
 .close-button {
@@ -19,7 +40,7 @@
     background: red;
     border-radius: 20px;
     color: white;
-    border: solid 2px #666;
+    border: solid 2px #c8a85f;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -27,24 +48,61 @@
     -ms-flex-pack: center;
     justify-content: center;
     font-family: "Varela Round", sans-serif;
+      box-shadow: inset 9px 4px 23px #5d4837;
+      animation-name: ButtonGlass;
+      animation-duration: 1s;
+        animation-iteration-count: infinite;
+}
+
+@keyframes ButtonGlass {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: .7;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.close-button:hover{
+  cursor: pointer;
+}
+
+.login-title  {
+  position: absolute;
+    font-family: "Varela Round", sans-serif;
+    /* font-family: 'Lobster', cursive; */
+    z-index: 1001;
+    top: 3px;
+    left: 189px;
+    font-size: 39px;
+    color: #c8a85f;
 }
 
 .login-username {
   position: absolute;
     top: 70px;
+    font-size: 15px;
     left: 157px;
     width: 300px;
     height: 25px;
     z-index: 100;
+    border: solid 3px #c8a85f;
+    border-radius: 5px;
 }
 
 .login-password {
   position: absolute;
     top: 110px;
+      font-size: 15px;
     left: 157px;
     width: 300px;
     height: 25px;
     z-index: 100;
+    border: solid 3px #c8a85f;
+    border-radius: 5px;
 }
 
 .login-button {
@@ -58,7 +116,7 @@ width: 123px;
 background: red;
 border-radius: 20px;
 color: white;
-border: solid 2px #666;
+border: solid 2px #c8a85f;
 display: -ms-flexbox;
 display: flex;
 -ms-flex-align: center;
@@ -66,4 +124,13 @@ align-items: center;
 -ms-flex-pack: center;
 justify-content: center;
 font-family: "Varela Round", sans-serif;
+  box-shadow: inset 9px 4px 23px #5d4837;
+  animation-name: ButtonGlass;
+  animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.login-button:hover {
+  cursor: pointer;
+  background: green;
 }

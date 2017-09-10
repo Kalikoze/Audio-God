@@ -29,6 +29,7 @@ class Controls extends Component {
 
     return (
       <div className="controls">
+        <p className='controls-title'>Controls</p>
         <div className='upper-button-container'>
           <div className='login-button-container' onClick={() => (renderLogin(true, false), createErrorMessage(''))}>
             <div className='controls-button-glass login-glass'>

@@ -6,75 +6,92 @@
   height: 100%;
   background: red;
   z-index: 4;
+  animation-name: createSlide;
+  animation-duration: .5s;
 }
 
-.error {
+@keyframes createSlide {
+  0% {
+      left: 1000px;
+  }
+  100% {
+      left: 0px;
+  }
+}
+
+.error-container  {
   position: absolute;
   z-index: 1001;
-  font-size: 20px;
-  color: white;
+  top: 47px;
+  /* left: 114px; */
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-/*.close-button {
+.create-error {
+  /*position: absolute;*/
+font-family: "Varela Round", sans-serif;
+/*z-index: 1001;
+top: 43px;
+left: 114px;*/
+font-size: 16px;
+color: red;
+}
+
+.create-title  {
   position: absolute;
-    top: 8px;
-    right: 10px;
-    z-index: 100;
-    height: 30px;
-    font-size: 27px;
-    width: 30px;
-    background: red;
-    border-radius: 20px;
-    color: white;
-    border: solid 2px #666;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
     font-family: "Varela Round", sans-serif;
-}*/
-
-.create-name {
-  position: absolute;
-    top: 30px;
-    left: 157px;
-    width: 300px;
-    height: 25px;
-    z-index: 100;
+    /* font-family: 'Lobster', cursive; */
+    z-index: 1001;
+    top: 3px;
+    left: 131px;
+    font-size: 39px;
+    color: #c8a85f;
 }
+
+
 
 .create-username {
   position: absolute;
     top: 70px;
+    font-size: 15px;
     left: 157px;
     width: 300px;
     height: 25px;
     z-index: 100;
+    border: solid 3px #c8a85f;
+    border-radius: 5px;
 }
 
 .create-password {
   position: absolute;
     top: 110px;
+      font-size: 15px;
     left: 157px;
     width: 300px;
     height: 25px;
     z-index: 100;
+    border: solid 3px #c8a85f;
+    border-radius: 5px;
 }
 
 .create-button {
   position: absolute;
       top: 154px;
-      right: 147px;
+      right: 179px;
       z-index: 100;
       height: 30px;
-      font-size: 27px;
-      width: 277px;
+      font-size: 20px;
+      width: 206px;
       background: red;
       border-radius: 20px;
       color: white;
-      border: solid 2px #666;
+      border: solid 2px #c8a85f;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-align: center;
@@ -82,4 +99,17 @@
       -ms-flex-pack: center;
       justify-content: center;
       font-family: "Varela Round", sans-serif;
+      -webkit-box-shadow: inset 9px 4px 23px #5d4837;
+      box-shadow: inset 9px 4px 23px #5d4837;
+      -webkit-animation-name: ButtonGlass;
+      animation-name: ButtonGlass;
+      -webkit-animation-duration: 2s;
+      animation-duration: 2s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+  }
+
+  .create-button:hover {
+    cursor: pointer;
+    background: green;
   }

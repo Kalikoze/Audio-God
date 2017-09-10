@@ -115,3 +115,29 @@
     opacity: 1;
   }
 }
+
+.version  {
+  font-family: 'Yellowtail', cursive;
+    font-size: 37px;
+    position: absolute;
+    top: 105px;
+    left: 364px;
+    color: white;
+    /* color: #c8a85f; */
+    z-index: 1;
+    transform: rotate(-3deg);
+    animation-name: version;
+    animation-duration: 5.5s;
+}
+
+@keyframes version {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

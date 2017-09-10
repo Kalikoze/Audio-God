@@ -35,9 +35,12 @@ class CreateAccount extends Component {
       <div className='create-account-container'>
       <img className='black-background' alt='' src={blackBackground}/>
         <div className='close-button' onClick={() => renderLogin(false, false)}>X</div>
-        {errorMessage.error ? <p className='error'>{errorMessage.error}</p> : null}
-        <input type='email' className='create-username' placeholder='  Username' value={email} onChange={e => this.setState({email: e.target.value})}/>
-        <input className='create-password' placeholder='  Password'  type='password' value={password} onChange={e => this.setState({password: e.target.value})}/>
+        <p className='create-title'>CREATE ACCOUNT</p>
+        <div className='error-container'>
+          {errorMessage.error ? <p className='create-error'>{errorMessage.error}</p> : null}
+        </div>
+        <input type='email' className='create-username' placeholder='  USER EMAIL' value={email} onChange={e => this.setState({email: e.target.value})}/>
+        <input className='create-password' placeholder='  USER PASSWORD'  type='password' value={password} onChange={e => this.setState({password: e.target.value})}/>
         <div className='create-button' onClick={() => this.createAccount(email, password)}>CREATE ACCOUNT</div>
       </div>
     )

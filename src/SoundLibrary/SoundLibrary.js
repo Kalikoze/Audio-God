@@ -28,6 +28,7 @@ class SoundLibrary extends Component {
 
     return (
       <div className="sound-library">
+        <p className='library-title'>Library</p>
         <div className='library-component-background'>
           <img className='black-background-library' alt='' src={blackBackground}/>
           <div className='melodic-samples' onClick={() => changeSounds(melodicSamples)}>Melodic Samples</div>

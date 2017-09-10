@@ -26,10 +26,11 @@ class Visualizer extends Component {
           {!loginEval.bool && !displayLogin.isLoginDisplayed && displayLogin.isCreateDisplayed ? <CreateAccount /> : ''}
           <img className='black-background' alt='' src={blackBackground}/>
           <img className='logo' alt='' src={logo}/>
+          <p className='version'>Version 1.0</p>
           <video poster={introVideo} className='intro-video' id="bgvid" playsInline autoPlay>
           <source src={introVideo} type="video/webm"></source>
           <source src={introVideo} type="video/mp4"></source>
-      </video>
+          </video>
         </div>
         <div className='right-speaker-box'>
           <img className='speaker' alt='' src={Speaker}/>

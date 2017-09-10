@@ -35,10 +35,11 @@ class Login extends Component {
       <div className='login-container'>
         <img className='black-background' alt='' src={blackBackground}/>
         <div className='close-button' onClick={() => renderLogin(false, false)}>X</div>
+        <p className='login-title'>USER LOGIN</p>
         {errorMessage.error ? <p className='error'>{errorMessage.error}</p> : null}
-        <input type='email' className='login-username' placeholder='  Email' value={email} onChange={e => this.setState({email: e.target.value})}/>
-        <input className='login-password' placeholder='  Password'  type='password' value={password} onChange={e => this.setState({password: e.target.value})}/>
-        <div className='login-button' onClick={() => this.login(email, password)}>Login</div>
+        <input type='email' className='login-username' placeholder='  USER EMAIL' value={email} onChange={e => this.setState({email: e.target.value})}/>
+        <input className='login-password' placeholder='  USER PASSWORD'  type='password' value={password} onChange={e => this.setState({password: e.target.value})}/>
+        <div className='login-button' onClick={() => this.login(email, password)}>SUBMIT</div>
 
       </div>
     )

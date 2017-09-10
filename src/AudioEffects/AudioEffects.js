@@ -8,7 +8,7 @@ export default class AudioEffects extends Component {
   render() {
     return (
       <div className="track-controls">
-
+        <p className='audio-controls-title'>Audio Controls</p>
         <div className='track-controls-inner-box'>
           <img className='audio-controls-backdrop' alt='' src={AudioControlsBack}/>
           <img className='scale' alt='' src={scale}/>

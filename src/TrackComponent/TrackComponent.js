@@ -1,13 +1,34 @@
 import React, { Component } from 'react';
 import './TrackComponent.css';
 import ControlKnob from '../ControlKnob/ControlKnob';
+import { DropTarget } from 'react-dnd';
+import { ItemTypes } from '../ItemTypes.js';
+import PropTypes from 'prop-types';
 import goldPlate from '../assets/gold-plate.jpg';
 import goldButton from '../assets/button-ring.png';
 
-export default class TrackComponent extends Component {
+const audioFile = {
+  drop(props) {
+    console.log(props)
+    return {
+      sampleName: props.sampleName,
+      sample: props.sample
+    }
+  }
+}
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  }
+}
+
+class TrackComponent extends Component {
   render() {
-    const { trackClass } = this.props
-    return (
+    console.log(this.props)
+    const { trackClass, connectDropTarget, isOver} = this.props
+    return connectDropTarget(
       <div className={trackClass}>
         <div className='pan-container'>
           <ControlKnob knobClass="pan" knobType='pan-knob'
@@ -42,3 +63,12 @@ export default class TrackComponent extends Component {
     )
   }
 }
+
+TrackComponent.propTypes = {
+  sampleName: PropTypes.string.isRequired,
+  sample: PropTypes.string.isRequired,
+  connectDropTarget: PropTypes.func.isRequired,
+  isOver: PropTypes.bool.isRequired
+};
+
+export default DropTarget(ItemTypes.AUDIO, audioFile, collect)(TrackComponent);

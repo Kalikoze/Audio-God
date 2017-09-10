@@ -17,19 +17,19 @@ class CreateAccount extends Component {
   createAccount(email, password) {
     const { createAccount, createErrorMessage } = this.props;
 
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(error => {
+      createAccount('', false)
+      createErrorMessage(error.message)
     });
 
     var user = firebase.auth().currentUser;
 
-    user ? (createAccount(user.email, true), createErrorMessage('')) : (createAccount('', false), createErrorMessage('Invalid email or password'))
+    if(user) {return (createAccount(user.email, true), createErrorMessage(''))}
   }
 
   render() {
     const { email, password } = this.state;
     const { renderLogin, loginEval, errorMessage } = this.props
-    console.log(errorMessage)
 
     return (
       <div className='create-account-container'>

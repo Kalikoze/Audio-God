@@ -70,7 +70,7 @@ border-radius: 5px;
   top: 101px;
   left: -31px;
   width: 142px;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   -webkit-appearance: none;
   border-radius: 5px;
   background: black;
@@ -94,9 +94,8 @@ left: 59px;
 width: 142px;
 width: 14px;
 height: 143px;
-/* -webkit-transform: rotate(90deg); */
--ms-transform: rotate(90deg);
-/* transform: rotate(90deg); */
+
+ transform: rotate(180deg); 
 border-radius: 5px;
 background: red;
 /* outline: none; */

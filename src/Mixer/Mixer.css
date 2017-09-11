@@ -3,6 +3,7 @@
   position: relative;
   height: 52vh;
   margin-top: 25px;
+  max-height: 500px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;

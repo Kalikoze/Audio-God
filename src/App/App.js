@@ -11,10 +11,6 @@ import backgroundImage from '../assets/dark-wood.jpg'
 
 
 class App extends Component {
-  componentDidMount() {
-    window.addEventListener('keydown', (e) => console.log(e.keyCode))
-  }
-
   render() {
     return (
       <div className="App" >

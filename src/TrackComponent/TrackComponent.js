@@ -25,28 +25,22 @@ function collect(connect, monitor) {
 }
 
 class TrackComponent extends Component {
-
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      audio: null,
+      sample: new Audio(this.props.audio),
       volume: 50
     }
   }
 
   playKey(e, playOnKey) {
-   if(e.code === playOnKey) {
-     console.log('true')
-   }
+    const { sample } = this.state
+    if(e.code === playOnKey) {
+      sample.pause()
+      sample.currentTime = 0;
+      sample.play();
+    }
   }
-
-  playSound(sample) {
-    sample.pause()
-    var audio = new Audio(sample);
-    audio.currentTime = 0;
-    audio.play();
-  }
-
 
   render() {
 

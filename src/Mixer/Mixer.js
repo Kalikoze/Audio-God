@@ -12,10 +12,10 @@ export default class Mixer extends Component {
           <img className='black-background-track' alt='' src={blackBackground}/>
         </div>
 
-        <TrackComponent trackClass={'track-component1'} />
-        <TrackComponent trackClass={'track-component2'} />
-        <TrackComponent trackClass={'track-component3'} />
-        <TrackComponent trackClass={'track-component4'} />
+        <TrackComponent trackClass={'track-component1'} playOnKey={'ArrowLeft'}/>
+        <TrackComponent trackClass={'track-component2'} playOnKey={'ArrowUp'}/>
+        <TrackComponent trackClass={'track-component3'} playOnKey={'ArrowDown'}/>
+        <TrackComponent trackClass={'track-component4'} playOnKey={'ArrowRight'}/>
       </div>
     )
   }

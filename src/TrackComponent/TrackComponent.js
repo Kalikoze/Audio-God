@@ -25,9 +25,41 @@ function collect(connect, monitor) {
 }
 
 class TrackComponent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      audio: null,
+      volume: 50
+    }
+  }
+
+  playKey(e, playOnKey) {
+   if(e.code === playOnKey) {
+     console.log('true')
+   }
+  }
+
+  playSound(sample) {
+    sample.pause()
+    var audio = new Audio(sample);
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+
   render() {
-    console.log(this.props)
-    const { trackClass, connectDropTarget, isOver} = this.props
+
+    const { trackClass, connectDropTarget, isOver, playOnKey} = this.props
+    const { volume } = this.state
+    const volumeLevel = {
+      height: `${volume}%`
+    }
+
+    document.documentElement.addEventListener('keydown', (e) => {
+      this.playKey(e, playOnKey)
+    });
+
+
     return connectDropTarget(
       <div className={trackClass}>
         <div className='pan-container'>
@@ -37,12 +69,12 @@ class TrackComponent extends Component {
         <div className="volume-container">
           <img className='volume-plate' alt='' src={goldPlate}/>
           <div className="volume-control">
-            <input type='range' className='fader'/>
+            <input type='range' className='fader' min='0' max='100' value={volume} onChange={e => this.setState({volume: e.target.value})} />
           </div>
           <div className="volume-display">
             <div className='volume-display-container'>
-            </div>
           </div>
+        </div>
         </div>
         <div className='lower-control-container'>
           <section className='mute-button'>

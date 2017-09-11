@@ -25,6 +25,7 @@ function collect(connect, monitor) {
 }
 
 class TrackComponent extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -60,8 +61,13 @@ class TrackComponent extends Component {
     });
 
 
+
+  const currentClass = {
+    class: this.props.trackClass
+  }
+
     return connectDropTarget(
-      <div className={trackClass}>
+      <div className={trackClass} ref={(element) => { this.something = currentClass}}>
         <div className='pan-container'>
           <ControlKnob knobClass="pan" knobType='pan-knob'
           ticks={"tick-pans"} valueContainer='pan-value'/>

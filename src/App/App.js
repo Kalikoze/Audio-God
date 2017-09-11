@@ -5,15 +5,19 @@ import Visualizer from '../Visualizer/Visualizer';
 import AudioEffects from '../AudioEffects/AudioEffects';
 import Mixer from '../Mixer/Mixer';
 import Controls from '../Controls/Controls';
-import SoundLibrary from '../SoundLibrary/SoundLibrary';
+import SoundLibrary from '../SoundLibrary/SoundLibrary.js';
 import './App.css'
 import backgroundImage from '../assets/dark-wood.jpg'
 
 
 class App extends Component {
+  componentDidMount() {
+    window.addEventListener('keydown', (e) => console.log(e.keyCode))
+  }
+
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <div className='background-container'>
           <img className='background-image' alt='' src={backgroundImage}/>
         </div>

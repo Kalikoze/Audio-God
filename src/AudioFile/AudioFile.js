@@ -4,13 +4,28 @@ import './AudioFile.css';
 import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
 import { ItemTypes } from '../ItemTypes.js';
+import { moveAudioSrc } from '../TrackComponent/TrackComponent';
 
 const audioSource = {
   beginDrag(props) {
-    return {
-      sampleName: props.sampleName,
-      sample: props.sample
+    console.log(props);
+   const audioSrc = { sampleName: props.sampleName, sample: props.sample };
+   return audioSrc;
+
+ },
+
+  endDrag(props, monitor, component) {
+
+    if (!monitor.didDrop()) {
+      return;
     }
+
+
+    // When dropped on a compatible target, do something
+    const audioSrc = monitor.getItem();
+    const dropResult = monitor.getDropResult();
+    // console.log(component)
+
   }
 }
 

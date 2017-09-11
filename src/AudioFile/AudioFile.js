@@ -8,24 +8,18 @@ import { moveAudioSrc } from '../TrackComponent/TrackComponent';
 
 const audioSource = {
   beginDrag(props) {
-    console.log(props);
    const audioSrc = { sampleName: props.sampleName, sample: props.sample };
    return audioSrc;
 
  },
 
   endDrag(props, monitor, component) {
-
     if (!monitor.didDrop()) {
       return;
     }
 
-
-    // When dropped on a compatible target, do something
     const audioSrc = monitor.getItem();
     const dropResult = monitor.getDropResult();
-    // console.log(component)
-
   }
 }
 

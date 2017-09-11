@@ -13,6 +13,7 @@ class SoundLibrary extends Component {
       const sampleName = sample.split('/')[3].split('.')[0]
       return <AudioFile key={i} sample={sample} sampleName={sampleName}/>
     })
+    console.log(samples)
 
     return (
       <div className="sound-library">

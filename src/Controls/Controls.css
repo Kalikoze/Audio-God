@@ -85,7 +85,7 @@
 .upper-button-container {
   height: 45%;
     width: 74%;
-    top: 4px;
+    top: 6px;
     left: 122px;
     z-index: 2;
     /*background: green;*/
@@ -155,7 +155,7 @@
 .lower-button-container {
   height: 45%;
     width: 74%;
-    top: 41px;
+    top: 43px;
     left: 122px;
     z-index: 2;
     /*background: orange;*/

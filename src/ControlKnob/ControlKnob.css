@@ -106,6 +106,10 @@ body {
   );*/
 }
 
+.knob-surround:hover  {
+  cursor: pointer;
+}
+
 .knob-effects {
   position: absolute;
 width: 100%;

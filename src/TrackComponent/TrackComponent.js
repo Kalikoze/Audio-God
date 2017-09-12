@@ -131,8 +131,8 @@ class TrackComponent extends Component {
           <p className='volume-title'>Volume</p>
         </div>
         <div className='lower-control-container'>
-          <section className='mute-button'>
-            <div className='mute-button-glass'></div>
+          <section className='mute-button' onClick={() => this.setState({ volume: 0})}>
+            <div className={volume ? 'mute-button-glass' : 'mute-button-glass mute-glass' } ></div>
             <p className='mute-label'>MUTE</p>
             <img className='lower-control-button-ring' alt='' src={goldButton}/>
           </section>

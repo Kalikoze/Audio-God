@@ -221,3 +221,15 @@
 .saveAs-button-container:hover .saveAs-glass  {
   background: green;
 }
+
+.glass-loggedIn {
+  background: red;
+}
+
+.login-button-container:hover .glass-loggedIn  {
+  background: red;
+}
+
+.create-button-container:hover .glass-loggedIn  {
+  background: red;
+}

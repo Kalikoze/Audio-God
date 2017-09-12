@@ -25,20 +25,22 @@ class Controls extends Component {
 
 
   render() {
-    const { renderLogin, createErrorMessage } = this.props
+    const { renderLogin, createErrorMessage, loginEval } = this.props
+
+    console.log(loginEval)
 
     return (
       <div className="controls">
         <p className='controls-title'>Controls</p>
         <div className='upper-button-container'>
           <div className='login-button-container' onClick={() => (renderLogin(true, false), createErrorMessage(''))}>
-            <div className='controls-button-glass login-glass'>
+            <div className={loginEval.bool? 'controls-button-glass login-glass glass-loggedIn' : 'controls-button-glass login-glass'}>
               <p className='control-button-label'>LOGIN</p>
             </div>
             <img className='gold-button-bezel' alt='' src={goldButton}/>
           </div>
           <div className='create-button-container' onClick={() => (renderLogin(false, true), createErrorMessage(''))}>
-            <div className='controls-button-glass create-glass'>
+            <div className={loginEval.bool? 'controls-button-glass create-glass glass-loggedIn' : 'controls-button-glass create-glass'}>
               <p className='control-button-label'>CREATE ACCT</p>
             </div>
             <img className='gold-button-bezel' alt='' src={goldButton}/>

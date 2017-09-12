@@ -3,7 +3,7 @@ import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import './AudioFile.css';
 import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
-import { ItemTypes } from '../ItemTypes.js';
+import { ItemTypes } from '../ItemTypes';
 import { moveAudioSrc } from '../TrackComponent/TrackComponent';
 
 const audioSource = {
@@ -15,6 +15,7 @@ const audioSource = {
 
   endDrag(props, monitor, component) {
     if (!monitor.didDrop()) {
+      console.log('Did Not Drop')
       return;
     }
 

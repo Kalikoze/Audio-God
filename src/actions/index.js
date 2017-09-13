@@ -42,3 +42,11 @@ export const selectSound = (sound, bool) => {
     bool
   }
 }
+
+export const trackObject = (sound, trackNum) => {
+  return {
+    type: 'TRACK_OBJECT',
+    sound,
+    trackNum
+  }
+}

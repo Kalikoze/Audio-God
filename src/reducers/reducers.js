@@ -28,10 +28,10 @@ export const errorMessage = (state='', action) => {
   }
 }
 
-export const sounds = (state=[], action) => {
+export const sounds = (state=null, action) => {
   switch(action.type) {
     case 'SOUNDS':
-      return [...state, action.sound]
+      return action.sound
 
     default:
       return state
@@ -51,9 +51,19 @@ export const soundsArray = (state=[], action) => {
 export const selectSound = (state=null, action) => {
   switch(action.type) {
     case 'SELECT_SOUND':
-    return {sound: action.sound, bool: action.bool}
+      return {sound: action.sound, bool: action.bool}
 
     default:
       return state;
+  }
+}
+
+export const trackObject = (state={}, action) => {
+  switch(action.type) {
+    case 'TRACK_OBJECT':
+      return Object.assign({}, state, {[action.trackNum]: action.sound})
+
+    default:
+      return state
   }
 }

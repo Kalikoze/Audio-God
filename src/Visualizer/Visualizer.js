@@ -13,6 +13,11 @@ import LoginEvalContainer from '../Containers/LoginEvalContainer';
 class Visualizer extends Component {
   render() {
     const { displayLogin, loginEval } = this.props
+
+    let theUser = 'Welcome ' + loginEval.user +'!'
+
+
+
     return (
       <div className="visualizer">
 
@@ -22,6 +27,9 @@ class Visualizer extends Component {
           <img className='speaker-inner-cone' alt='' src={SpeakerCone}/>
         </div>
         <div className='visualizer-box'>
+          <div className='login-box'>
+            {!loginEval.bool ? <p className='login'>PLEASE LOGIN</p> : <p className='loggedIn'>{theUser}</p>}
+          </div>
           {!loginEval.bool && !displayLogin.isCreateDisplayed && displayLogin.isLoginDisplayed ? <Login /> : ''}
           {!loginEval.bool && !displayLogin.isLoginDisplayed && displayLogin.isCreateDisplayed ? <CreateAccount /> : ''}
           <img className='black-background' alt='' src={blackBackground}/>

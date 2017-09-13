@@ -8,7 +8,7 @@ import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import TrackContainer from '../Containers/TrackContainer'
 
 
-const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, selectSound}) => {
+const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, selectSound, changeVolume, volume}) => {
   function playKey(e, playOnKey) {
     const trackNum = trackClass.slice(-1);
     const track = trackObject[trackNum]
@@ -16,16 +16,10 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
       if(sounds) {sounds.stop()}
       if(track.gain[0]) {track.stop()}
       track.play({env: {hold: 10000}})
-
-
-//     this.state = {
-//       sample: null,
-//       volume: 50,
-//       name: 'ADD TRACK',
-//       hasTrack: false
-
     }
   }
+
+  console.log('volume', volume)
 
   function setTrack() {
     const trackNum = trackClass.slice(-1)
@@ -35,17 +29,6 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
   }
 
 
-  
-  setSound()  {
-    const { selectedSound, selectSound } = this.props
-    console.log(selectedSound)
-    this.setState({
-      sample: new Audio(selectedSound.sound),
-      name: selectedSound.name,
-      hasTrack: true
-    })
-    selectSound(null, false)
-  }
 
   render() {
     const { trackClass, playOnKey, selectedSound} = this.props

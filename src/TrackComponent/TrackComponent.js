@@ -1,30 +1,41 @@
 import React, { Component } from 'react';
 import './TrackComponent.css';
 import ControlKnob from '../ControlKnob/ControlKnob';
+import Wad from 'web-audio-daw';
 import goldPlate from '../assets/gold-plate.jpg';
 import goldButton from '../assets/goldButton.png';
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
+import TrackContainer from '../Containers/TrackContainer'
 
-class TrackComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sample: null,
-      volume: 50,
-      name: 'ADD TRACK',
-      hasTrack: false
+
+const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, selectSound}) => {
+  function playKey(e, playOnKey) {
+    const trackNum = trackClass.slice(-1);
+    const track = trackObject[trackNum]
+    if(e.code === playOnKey && track) {
+      if(sounds) {sounds.stop()}
+      if(track.gain[0]) {track.stop()}
+      track.play({env: {hold: 10000}})
+
+
+//     this.state = {
+//       sample: null,
+//       volume: 50,
+//       name: 'ADD TRACK',
+//       hasTrack: false
+
     }
   }
 
-  playKey(e, playOnKey) {
-    const { sample, context } = this.state
-    if(e.code === playOnKey) {
-      sample.pause()
-      sample.currentTime = 0;
-      sample.play();
+  function setTrack() {
+    const trackNum = trackClass.slice(-1)
+    if(selectedSound && selectedSound.sound) {
+      setTrackObject(selectedSound.sound, trackNum)
     }
   }
 
+
+  
   setSound()  {
     const { selectedSound, selectSound } = this.props
     console.log(selectedSound)
@@ -102,4 +113,4 @@ class TrackComponent extends Component {
   }
 }
 
-export default SoundLibraryContainer(TrackComponent)
+export default TrackContainer(SoundLibraryContainer(TrackComponent))

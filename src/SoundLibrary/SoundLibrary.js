@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Wad from 'web-audio-daw';
 import './SoundLibrary.css';
 import blackBackground from '../assets/black-background.jpg';
 import melodicSamples from '../Melodic-Samples/index';
@@ -8,9 +9,8 @@ import SoundLibraryContainer from '../Containers/SoundLibraryContainer';
 class SoundLibrary extends Component {
   playSound(sample) {
     const { sounds, addSound } = this.props
-    sounds.forEach(sound => sound.pause())
-    var audio = new Audio(sample);
-    audio.currentTime = 0;
+    if(sounds) {sounds.stop()}
+    var audio = new Wad({source: sample});
     audio.play();
     addSound(audio)
   }

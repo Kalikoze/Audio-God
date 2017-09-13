@@ -1,3 +1,5 @@
+import Wad from 'web-audio-daw';
+
 export const displayLogin = (state={isLoginDisplayed: false, isCreateDisplayed: false}, action) => {
   switch(action.type) {
     case 'DISPLAY_LOGIN':
@@ -28,10 +30,10 @@ export const errorMessage = (state='', action) => {
   }
 }
 
-export const sounds = (state=[], action) => {
+export const sounds = (state=null, action) => {
   switch(action.type) {
     case 'SOUNDS':
-      return [...state, action.sound]
+      return action.sound
 
     default:
       return state
@@ -48,12 +50,23 @@ export const soundsArray = (state=[], action) => {
   }
 }
 
-export const selectSound = (state={}, action) => {
+export const selectSound = (state=null, action) => {
   switch(action.type) {
     case 'SELECT_SOUND':
-    return {sound: action.sound, bool: action.bool, name: action.name}
+      return {sound: action.sound, bool: action.bool, name: action.name}
+
 
     default:
       return state;
+  }
+}
+
+export const trackObject = (state={}, action) => {
+  switch(action.type) {
+    case 'TRACK_OBJECT':
+      return Object.assign({}, state, {[action.trackNum]: new Wad({source: action.sound})})
+
+    default:
+      return state
   }
 }

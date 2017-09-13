@@ -47,3 +47,13 @@ export const soundsArray = (state=[], action) => {
       return state;
   }
 }
+
+export const selectSound = (state={}, action) => {
+  switch(action.type) {
+    case 'SELECT_SOUND':
+    return {sound: action.sound, bool: action.bool}
+
+    default:
+      return state;
+  }
+}

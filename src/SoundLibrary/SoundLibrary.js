@@ -4,14 +4,26 @@ import blackBackground from '../assets/black-background.jpg';
 import melodicSamples from '../Melodic-Samples/index';
 import drumSamples from '../Drum-Samples/index';
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer';
-import AudioFile from '../AudioFile/AudioFile'
 
 class SoundLibrary extends Component {
+  playSound(sample) {
+    const { sounds, addSound } = this.props
+    sounds.forEach(sound => sound.pause())
+    var audio = new Audio(sample);
+    audio.currentTime = 0;
+    audio.play();
+    addSound(audio)
+  }
+
   render() {
-    const {soundsArray, changeSounds} = this.props
+    const {soundsArray, changeSounds, selectSound} = this.props
     const samples = soundsArray.map((sample, i) => {
       const sampleName = sample.split('/')[3].split('.')[0]
-      return <AudioFile key={i} sample={sample} sampleName={sampleName}/>
+      return (
+        <div className="sound-container" key={i} onClick={() => (this.playSound(sample), selectSound(sample, true))}>
+          <span className="sound">{sampleName}</span>
+        </div>
+      )
     })
 
     return (

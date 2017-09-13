@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 import Visualizer from '../Visualizer/Visualizer';
 import AudioEffects from '../AudioEffects/AudioEffects';
 import Mixer from '../Mixer/Mixer';
@@ -10,7 +8,7 @@ import './App.css'
 import backgroundImage from '../assets/dark-wood.jpg'
 
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App" >
@@ -34,5 +32,3 @@ class App extends Component {
     );
   }
 }
-
-export default DragDropContext(HTML5Backend)(App);

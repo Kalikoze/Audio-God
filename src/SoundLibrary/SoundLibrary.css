@@ -1,6 +1,8 @@
 .sound-library  {
   width: 100%;
   height: 36%;
+  position: relative;
+  left: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,10 +12,47 @@
   font-family: 'Yellowtail', cursive;
   font-size: 26px;
   position: absolute;
-  top: 334px;
-  left: 91px;
+  top: -28px;
+  left: 46px;
   color: white;
   color: #c8a85f;
+}
+
+.selected-title-box {
+  position: absolute;
+top: -28px;
+left: 153px;
+width: 300px;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-align: center;
+align-items: center;
+-ms-flex-pack: center;
+justify-content: center;
+/*background: red;*/
+}
+
+.selected-title {
+  font-family: 'Yellowtail', cursive;
+  font-size: 26px;
+  /*position: absolute;
+  top: -28px;
+  left: 274px;*/
+  color: white;
+  /*color: #c8a85f;*/
+  animation: selectedTitle infinite 1s;
+}
+
+@keyframes selectedTitle {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }
 
 .library-component-background  {
@@ -21,7 +60,7 @@
 height: 90%;
 /* background: red; */
 position: relative;
-left: 50px;
+/*left: 50px;*/
 overflow: hidden;
 border-radius: 30px;
 border: solid 2px #666666;
@@ -50,19 +89,26 @@ border: solid 2px #666666;
   overflow-y: scroll;
 }
 
-.sound-container{
-    font-family: "Varela Round", sans-serif;
-}
+/*.sound-container{
+  font-family: "Varela Round", sans-serif;
+}*/
 
 .sound-container {
+  font-family: "Varela Round", sans-serif;
   cursor: pointer;
   color: white;
 }
 
 .sound-container:hover {
-
   background: #c8a85f;
   color: black
+}
+
+.sound-selected {
+  font-family: "Varela Round", sans-serif;
+  cursor: pointer;
+  color: white;
+  background: green;
 }
 
 .melodic-samples {

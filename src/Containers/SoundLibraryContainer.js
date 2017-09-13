@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addSound: (sound) => dispatch(sounds(sound)),
     changeSounds: (sounds) => dispatch(soundsArray(sounds)),
-    selectSound: (sound, bool) => dispatch(selectSound(sound, bool))
+    selectSound: (sound, bool, name) => dispatch(selectSound(sound, bool, name))
   }
 }
 

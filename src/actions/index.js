@@ -35,10 +35,11 @@ export const soundsArray = (sounds) => {
   }
 }
 
-export const selectSound = (sound, bool) => {
+export const selectSound = (sound, bool, name) => {
   return {
     type: 'SELECT_SOUND',
     sound,
-    bool
+    bool,
+    name
   }
 }

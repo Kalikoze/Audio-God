@@ -11,6 +11,8 @@ class TrackComponent extends Component {
     this.state = {
       sample: null,
       volume: 50,
+      name: 'ADD TRACK',
+      hasTrack: false
     }
   }
 
@@ -27,7 +29,9 @@ class TrackComponent extends Component {
     const { selectedSound, selectSound } = this.props
     console.log(selectedSound)
     this.setState({
-      sample: new Audio(selectedSound.sound)
+      sample: new Audio(selectedSound.sound),
+      name: selectedSound.name,
+      hasTrack: true
     })
     selectSound(null, false)
   }
@@ -48,9 +52,11 @@ class TrackComponent extends Component {
     }
 
     return (
-      <div className={trackClass} onClick={() => this.setSound()} ref={(element) => { this.something = currentClass}}>
+      <div className={trackClass}  ref={(element) => { this.something = currentClass}}>
         <div className='track-title-container'>
-          <p className='track-title'>Track</p>
+          <div className={!this.state.hasTrack && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => this.setSound()}>
+            <p className={!this.state.hasTrack && selectedSound.bool ? 'add-track-title' : 'track-title'}>{this.state.name}</p>
+          </div>
         </div>
         <div className='pan-container'>
           <ControlKnob knobClass="pan" knobType='pan-knob'
@@ -77,8 +83,13 @@ class TrackComponent extends Component {
             <img className='lower-control-button-ring' alt='' src={goldButton}/>
           </section>
           <section className='track-button'>
-            <div className='track-button-glass'></div>
+            <div className={!this.state.hasTrack ? 'track-button-glass-off' : 'track-button-glass'}></div>
             <p className='track-label'>EDIT</p>
+            <img className='lower-control-button-ring' alt='' src={goldButton}/>
+          </section>
+          <section className='remove-button' onClick={() => this.setState({ sample: null, volume: 50, name: 'ADD TRACK', hasTrack: false})}>
+            <div className={!this.state.hasTrack ? 'remove-button-glass-off' : 'remove-button-glass'}></div>
+            <p className='remove-label'>REMOVE</p>
             <img className='lower-control-button-ring' alt='' src={goldButton}/>
           </section>
           <div className='key-title-container'>

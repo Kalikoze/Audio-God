@@ -94,6 +94,62 @@
   }
 }
 
+.login-box  {
+  position: absolute;
+top: 168px;
+left: 53px;
+/*background: red;*/
+width: 500px;
+height: 39px;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-align: center;
+align-items: center;
+-ms-flex-pack: center;
+justify-content: center;
+-webkit-animation-name: intrologin;
+animation-name: intrologin;
+-webkit-animation-duration: 6s;
+animation-duration: 7s;
+z-index: 2;
+}
+
+@keyframes intrologin {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.login  {
+  font-family: "Varela Round", sans-serif;
+  opacity: 1;
+  color: white;
+  font-size: 20px;
+  animation: introloginTitle infinite 2s;
+}
+
+@keyframes introloginTitle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loggedIn  {
+  font-family: "Varela Round", sans-serif;
+  opacity: 1;
+  color: white;
+  font-size: 20px;
+}
+
 .logo {
   position: absolute;
   width: 100%;

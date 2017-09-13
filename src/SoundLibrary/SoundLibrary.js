@@ -18,8 +18,6 @@ class SoundLibrary extends Component {
   render() {
     const {soundsArray, changeSounds, selectSound, selectedSound} = this.props
 
-    console.log('select', selectedSound.name)
-
     const samples = soundsArray.map((sample, i) => {
       const sampleName = sample.split('/')[3].split('.')[0]
       return (
@@ -33,7 +31,7 @@ class SoundLibrary extends Component {
       <div className="sound-library">
         <p className='library-title'>Library</p>
         <div className='selected-title-box'>
-          <p className='selected-title'>{selectedSound.name}</p>
+          <p className='selected-title'>{selectedSound.bool ? selectedSound.name : null}</p>
         </div>
         <div className='library-component-background'>
 

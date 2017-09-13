@@ -27,8 +27,6 @@ class Controls extends Component {
   render() {
     const { renderLogin, createErrorMessage, loginEval } = this.props
 
-    console.log(loginEval)
-
     return (
       <div className="controls">
         <p className='controls-title'>Controls</p>

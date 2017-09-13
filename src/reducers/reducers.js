@@ -1,3 +1,5 @@
+import Wad from 'web-audio-daw';
+
 export const displayLogin = (state={isLoginDisplayed: false, isCreateDisplayed: false}, action) => {
   switch(action.type) {
     case 'DISPLAY_LOGIN':
@@ -61,7 +63,7 @@ export const selectSound = (state=null, action) => {
 export const trackObject = (state={}, action) => {
   switch(action.type) {
     case 'TRACK_OBJECT':
-      return Object.assign({}, state, {[action.trackNum]: action.sound})
+      return Object.assign({}, state, {[action.trackNum]: new Wad({source: action.sound})})
 
     default:
       return state

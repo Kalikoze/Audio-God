@@ -36,16 +36,99 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /*background: red;*/
+}
+
+.track-title-button  {
+  width: 83%;
+  height: 60%;
+  border: solid 2px #c8a85f;
+  background: orange;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 0px 10px #5d4837;
+  animation-name: trackGlass;
+  animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+/*.track-title-button:hover{
+  cursor: pointer;
+}*/
+
+@keyframes trackGlass {
+  0% {
+      box-shadow: inset 0px 0px 10px #5d4837;
+      opacity: 1;
+  }
+  50% {
+      box-shadow: inset 0px 0px 15px #5d4837;
+      opacity: 1;
+  }
+  100% {
+      box-shadow: inset 0px 0px 15px #5d4837;
+      opacity: 1;
+  }
 }
 
 .track-title  {
   font-family: 'Yellowtail', cursive;
-  font-size: 26px;
+    font-family: "Varela Round", sans-serif;
+  font-size: 8px;
   /*position: absolute;
   top: 0px;
   left: 0px;*/
   color: white;
   /*color: #c8a85f;*/
+}
+
+.add-track-title  {
+  font-family: 'Yellowtail', cursive;
+    font-family: "Varela Round", sans-serif;
+  font-size: 8px;
+  /*position: absolute;
+  top: 0px;
+  left: 0px;*/
+  color: white;
+  /*color: #c8a85f;*/
+}
+
+
+
+.add-track  {
+  width: 83%;
+  height: 60%;
+  border: solid 2px #c8a85f;
+  background: green;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 0px 10px #5d4837;
+  animation-name: addTrackGlass;
+  animation-duration: .5s;
+    animation-iteration-count: infinite;
+}
+
+.add-track:hover{
+  cursor: pointer;
+}
+
+@keyframes addTrackGlass {
+  0% {
+      box-shadow: inset 0px 0px 10px #5d4837;
+      opacity: 1;
+  }
+  50% {
+      box-shadow: inset 0px 0px 15px #5d4837;
+      opacity: .7;
+  }
+  100% {
+      box-shadow: inset 0px 0px 15px #5d4837;
+      opacity: 1;
+  }
 }
 
 .pan-container {
@@ -58,7 +141,7 @@
 
 .volume-container {
   width: 100%;
-  height: 50%;
+  height: 45%;
   /*background: purple;*/
   position: relative;
   top: -17px;
@@ -66,7 +149,7 @@
 
 .volume-plate {
   width: 67%;
-height: 80%;
+height: 75%;
 position: absolute;
 top: 26px;
 left: 18px;
@@ -86,9 +169,9 @@ border-radius: 5px;
 
 .fader {
   position: absolute;
-  top: 99px;
-  left: -31px;
-  width: 142px;
+  top: 88px;
+    left: -22px;
+    width: 124px;
   transform: rotate(-90deg);
   -webkit-appearance: none;
   border-radius: 5px;
@@ -112,17 +195,23 @@ border-radius: 5px;
 
 .volume-display-container {
   position: absolute;
-  top: 35px;
-  left: 59px;
+  top: 34px;
+  left: 57px;
   width: 142px;
   width: 14px;
-  height: 142px;
+  height: 124px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   border-radius: 5px;
   background: red;
+  -webkit-box-shadow: inset 0px 0px 13px black;
   box-shadow: inset 0px 0px 13px black;
+  -webkit-animation-name: sampleGlass;
   animation-name: sampleGlass;
+  -webkit-animation-duration: 1.5s;
   animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 
@@ -144,7 +233,7 @@ border-radius: 5px;
   width: 100%;
   height: 30px;
   position: absolute;
-  top: 282px;
+  top: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,7 +250,7 @@ border-radius: 5px;
 }
 
 .lower-control-container {
-  height: 20%;
+  height: 22%;
   width: 100%;
   margin-top: 7px;
   display: flex;
@@ -174,10 +263,10 @@ border-radius: 5px;
 
 .mute-button  {
   width: 90%;
-  height: 30%;
+  height: 65px;
   /*background: orange;*/
   position: relative;
-  margin: 5px 0 5px 0;
+  margin: 2px 0 2px 0;
   top: -11px;
   z-index: 1000;
 }
@@ -242,10 +331,10 @@ animation-iteration-count: infinite;
 
 .track-button  {
   width: 90%;
-  height: 30%;
+  height: 65px;
   /*background: orange;*/
   position: relative;
-  margin: 5px 0 5px 0;
+  margin: 2px 0 2px 0;
   top: -11px;
   z-index: 1000;
 }
@@ -255,7 +344,7 @@ animation-iteration-count: infinite;
 }
 
 .track-button:hover .track-button-glass {
-  background: red;
+  background: green;
   cursor: pointer;
 }
 
@@ -273,6 +362,100 @@ animation-iteration-count: infinite;
 height: 94%;
 border-radius: 100px;
 background: orange;
+position: absolute;
+top: 0px;
+left: 5%;
+-webkit-box-shadow: inset 0px 0px 13px black;
+box-shadow: inset 0px 0px 13px black;
+animation-name: whiteButtonGlass;
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-iteration-count: infinite;
+animation-iteration-count: infinite;
+}
+
+@keyframes whiteButtonGlass {
+  0% {
+      box-shadow: inset 0px 0px 13px black;
+  }
+  50% {
+      box-shadow: inset 0px 0px 20px black;
+  }
+  90% {
+      box-shadow: inset 0px 0px 2px black;
+  }
+  100% {
+      box-shadow: inset 0px 0px 13px black;
+  }
+}
+
+.track-button-glass-off  {
+  width: 90%;
+height: 94%;
+border-radius: 100px;
+background: red;
+position: absolute;
+top: 0px;
+left: 5%;
+-webkit-box-shadow: inset 0px 0px 13px black;
+box-shadow: inset 0px 0px 13px black;
+animation-name: whiteButtonGlass;
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-iteration-count: infinite;
+animation-iteration-count: infinite;
+}
+
+.remove-button  {
+  width: 90%;
+  height: 65px;
+  /*background: orange;*/
+  position: relative;
+  margin: 2px 0 2px 0;
+  top: -11px;
+  z-index: 1000;
+}
+
+.remove-button:hover{
+  cursor: pointer;
+}
+
+.remove-button:hover .remove-button-glass {
+  background: green;
+  cursor: pointer;
+}
+
+.remove-label {
+  font-family: "Varela Round", sans-serif;
+    font-size: 13px;
+    color: white;
+    position: absolute;
+    top: 3px;
+    left: 18px;
+}
+
+.remove-button-glass  {
+  width: 90%;
+height: 94%;
+border-radius: 100px;
+background: orange;
+position: absolute;
+top: 0px;
+left: 5%;
+-webkit-box-shadow: inset 0px 0px 13px black;
+box-shadow: inset 0px 0px 13px black;
+animation-name: whiteButtonGlass;
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-iteration-count: infinite;
+animation-iteration-count: infinite;
+}
+
+.remove-button-glass-off  {
+  width: 90%;
+height: 94%;
+border-radius: 100px;
+background: red;
 position: absolute;
 top: 0px;
 left: 5%;
@@ -429,7 +612,7 @@ animation-iteration-count: infinite;
 /* font-family: "Varela Round", sans-serif; */
 font-size: 16px;
 color: white;
-margin-top: -6px;
+margin-top: 7px;
 /* color: #c8a85f; */
 }
 
@@ -440,4 +623,8 @@ margin-top: -6px;
   color: white;
   margin-top: 0px;
   /* color: #c8a85f; */
+}
+
+.mute-glass {
+  background: red;
 }

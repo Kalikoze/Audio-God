@@ -43,7 +43,7 @@
   width: 83%;
   height: 60%;
   border: solid 2px #c8a85f;
-  background: orange;
+  background: red;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -109,7 +109,7 @@
   box-shadow: inset 0px 0px 10px #5d4837;
   animation-name: addTrackGlass;
   animation-duration: .5s;
-    animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 .add-track:hover{

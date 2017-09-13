@@ -25,19 +25,23 @@ class TrackComponent extends Component {
 
   setSound()  {
     const { selectedSound, selectSound } = this.props
-    console.log(selectedSound)
-    this.setState({
-      sample: new Audio(selectedSound.sound)
-    })
-    selectSound(null, false)
+
+    if (selectedSound && selectedSound.sound) {
+      this.setState({
+        sample: new Audio(selectedSound.sound)
+      })
+    }
+    selectSound(null, null)
   }
 
   render() {
-    const { trackClass, playOnKey, selectedSound} = this.props
-    const { volume } = this.state
+    const { trackClass, playOnKey, selectedSound } = this.props
+    const { volume, sample } = this.state
     const volumeLevel = {
       height: `${volume}%`
     }
+
+    const trackName = sample ? sample.src.split('/')[5].split('.')[0].slice(0, 5) : 'Empty'
 
     document.documentElement.addEventListener('keydown', (e) => {
       this.playKey(e, playOnKey)
@@ -50,7 +54,7 @@ class TrackComponent extends Component {
     return (
       <div className={trackClass} onClick={() => this.setSound()} ref={(element) => { this.something = currentClass}}>
         <div className='track-title-container'>
-          <p className='track-title'>Track</p>
+          <p className='track-title'>{trackName}</p>
         </div>
         <div className='pan-container'>
           <ControlKnob knobClass="pan" knobType='pan-knob'

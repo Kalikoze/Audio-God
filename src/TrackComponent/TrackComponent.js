@@ -8,7 +8,7 @@ import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import TrackContainer from '../Containers/TrackContainer'
 
 
-const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, selectSound}) => {
+const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, selectSound, changeVolume, volume}) => {
   function playKey(e, playOnKey) {
     const trackNum = trackClass.slice(-1);
     const track = trackObject[trackNum]
@@ -19,13 +19,17 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
     }
   }
 
+  console.log('volume', volume)
+
   function setTrack() {
     const trackNum = trackClass.slice(-1)
     if(selectedSound && selectedSound.sound) {
       setTrackObject(selectedSound.sound, trackNum)
     }
+
     selectSound(null, false)
   }
+
 
   // const volumeLevel = {
   //   height: `${volume}%`

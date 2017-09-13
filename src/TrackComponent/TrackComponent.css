@@ -204,7 +204,7 @@ border-radius: 5px;
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   border-radius: 5px;
-  background: red;
+  background: p;
   -webkit-box-shadow: inset 0px 0px 13px black;
   box-shadow: inset 0px 0px 13px black;
   -webkit-animation-name: sampleGlass;

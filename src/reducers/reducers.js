@@ -80,3 +80,20 @@ export const changeSound = (state={}, action) => {
         return state
   }
 }
+
+const muteDefault = {
+  1: 10000,
+  2: 10000,
+  3: 10000,
+  4: 10000
+}
+
+export const mute = (state=muteDefault, action) => {
+  switch(action.type) {
+    case 'MUTE':
+      return Object.assign({}, state, {[action.trackNum]: action.num})
+
+    default:
+      return state;
+  }
+}

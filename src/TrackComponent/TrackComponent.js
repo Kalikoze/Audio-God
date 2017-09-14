@@ -15,27 +15,32 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
     if(e.code === playOnKey && track) {
       if(sounds) {sounds.stop()}
       if(track.gain[0]) {track.stop()}
-      track.play({env: {hold: 10000}})
+      track.play({
+        volume: volume[trackNum],
+        env: {hold: 10000}})
     }
   }
-
-  console.log('volume', volume)
 
   function setTrack() {
     const trackNum = trackClass.slice(-1)
     if(selectedSound && selectedSound.sound) {
       setTrackObject(selectedSound.sound, trackNum)
     }
-
     selectSound(null, false)
   }
 
-
-  // const volumeLevel = {
-  //   height: `${volume}%`
-  // }
   const trackNum = trackClass.slice(-1);
   const track = trackObject[trackNum]
+
+  const volumeLevel = {height: `${(volume[trackNum] * 100)}%`}
+
+  function theVolume(e)  {
+    const trackNum = trackClass.slice(-1)
+    const volume = e / 100;
+    console.log(volume)
+    changeVolume(volume, trackNum)
+  }
+
 
   document.documentElement.addEventListener('keydown', (e) => {
     playKey(e, playOnKey)
@@ -45,7 +50,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
     <div className={trackClass}>
       <div className='track-title-container'>
         <div className={!track && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => setTrack()}>
-          <p className={!track && selectedSound.bool ? 'add-track-title' : 'track-title'}>{track ? track.source.split('/')[3].split('.')[0] : 'Empty'}</p>
+          <p className={!track && selectedSound.bool ? 'add-track-title' : 'track-title'}>{track ? track.source.split('/')[3].split('.')[0] : 'ADD TRACK'}</p>
         </div>
       </div>
       <div className='pan-container'>
@@ -55,11 +60,11 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
       <div className="volume-container">
         <img className='volume-plate' alt='' src={goldPlate}/>
         <div className="volume-control">
-          <input type='range' className='fader' min='0' max='100'/>
+          <input type='range' className='fader' min='0' max='100' value={(volume[trackNum] * 100)} onChange={(e) => theVolume(e.target.value)}/>
         </div>
         <div className="volume-display">
           <div className='volume-display-container'>
-            <div className='volume-display-bar'></div>
+            <div className='volume-display-bar' style={volumeLevel}></div>
           </div>
         </div>
       </div>

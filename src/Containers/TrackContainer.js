@@ -10,8 +10,8 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setTrackObject: (sound, trackNum) => dispatch(trackObject(sound, trackNum))
-    changeVolume: (volume) => dispatch(changeVolume(volume))
+    setTrackObject: (sound, trackNum) => dispatch(trackObject(sound, trackNum)),
+    changeVolume: (volume,trackNum) => dispatch(changeVolume(volume, trackNum))
   }
 }
 

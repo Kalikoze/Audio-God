@@ -71,10 +71,10 @@ export const trackObject = (state={}, action) => {
   }
 }
 
-export const changeSound = (state=50, action) => {
+export const changeSound = (state={}, action) => {
   switch(action.type) {
     case 'CHANGE_VOLUME':
-      return action.volume
+      return Object.assign({}, state, {[action.trackNum]: action.volume})
 
       default:
         return state

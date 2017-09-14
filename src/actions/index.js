@@ -52,9 +52,10 @@ export const trackObject = (sound, trackNum) => {
   }
 }
 
-export const changeVolume = (volume) => {
+export const changeVolume = (volume, trackNum) => {
   return {
     type: 'CHANGE_VOLUME',
-    volume
+    volume,
+    trackNum
   }
 }

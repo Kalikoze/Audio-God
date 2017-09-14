@@ -59,3 +59,11 @@ export const changeVolume = (volume, trackNum) => {
     trackNum
   }
 }
+
+export const mute = (num, trackNum) => {
+  return {
+    type: 'MUTE',
+    num,
+    trackNum
+  }
+}

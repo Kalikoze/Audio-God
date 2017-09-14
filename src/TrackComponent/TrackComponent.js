@@ -7,8 +7,7 @@ import goldButton from '../assets/goldButton.png';
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import TrackContainer from '../Containers/TrackContainer'
 
-
-const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, selectSound, changeVolume, volume}) => {
+const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, selectSound, changeVolume, volume, isMute, mute}) => {
   function playKey(e, playOnKey) {
     const trackNum = trackClass.slice(-1);
     const track = trackObject[trackNum]
@@ -17,8 +16,13 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
       if(track.gain[0]) {track.stop()}
       track.play({
         volume: volume[trackNum],
-        env: {hold: 10000}})
+        env: {hold: isMute[trackNum]}})
     }
+  }
+
+  function changeMute() {
+    const trackNum = trackClass.slice(-1)
+    isMute[trackNum] ? mute(0, trackNum) : mute(10000, trackNum)
   }
 
   function setTrack() {
@@ -37,7 +41,6 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
   function theVolume(e)  {
     const trackNum = trackClass.slice(-1)
     const volume = e / 100;
-    console.log(volume)
     changeVolume(volume, trackNum)
   }
 
@@ -72,8 +75,8 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
         <p className='volume-title'>Volume</p>
       </div>
       <div className='lower-control-container'>
-        <section className='mute-button'>
-          <div className='mute-button-glass'></div>
+        <section className='mute-button' onClick={() => changeMute()}>
+          <div className={isMute[trackNum] ? 'mute-button-glass' : 'mute-button-glass mute-glass'}></div>
           <p className='mute-label'>MUTE</p>
           <img className='lower-control-button-ring' alt='' src={goldButton}/>
         </section>
@@ -97,5 +100,3 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
 }
 
 export default TrackContainer(SoundLibraryContainer(TrackComponent))
-
-// <div className={!this.state.hasTrack ? 'remove-button-glass-off' : 'remove-button-glass'}></div>

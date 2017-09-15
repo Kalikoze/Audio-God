@@ -52,6 +52,13 @@ export const trackObject = (sound, trackNum) => {
   }
 }
 
+export const handleEvents = (eventKey) => {
+  return {    
+    type: 'HANDLE_EVENTS',
+    eventKey
+  }
+}
+
 export const changeVolume = (volume, trackNum) => {
   return {
     type: 'CHANGE_VOLUME',
@@ -64,6 +71,13 @@ export const mute = (num, trackNum) => {
   return {
     type: 'MUTE',
     num,
+    trackNum
+  }
+}
+
+export const removeSound = (trackNum) => {
+  return {
+    type: 'REMOVE_SOUND',
     trackNum
   }
 }

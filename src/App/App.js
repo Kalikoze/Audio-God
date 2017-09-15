@@ -5,13 +5,15 @@ import Mixer from '../Mixer/Mixer';
 import Controls from '../Controls/Controls';
 import SoundLibrary from '../SoundLibrary/SoundLibrary.js';
 import './App.css'
-import backgroundImage from '../assets/dark-wood.jpg'
+import backgroundImage from '../assets/dark-wood.jpg';
+import TrackContainer from '../Containers/TrackContainer'
 
+class App extends Component {
 
-export default class App extends Component {
   render() {
+    const { handleEvents } = this.props
     return (
-      <div className="App" >
+      <div className="App" tabIndex='0' onKeyDown={e => handleEvents(e.keyCode)}>
         <div className='background-container'>
           <img className='background-image' alt='' src={backgroundImage}/>
         </div>
@@ -32,3 +34,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default TrackContainer(App);

@@ -13,24 +13,44 @@ export default class ControlKnob extends Component {
     }
   }
 
-  moveKnob(e) {
+  moveControlKnob(e) {
     const { angle } = this.state;
     const minangle = angle - 2 >= 0 ? angle - 2 : 0;
     const maxangle = angle + 2 <= 270 ? angle + 2 : 270;
 
-    e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setAngle()) : (this.setState({angle: minangle}), this.setAngle())
+    e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setControlAngle()) : (this.setState({angle: minangle}), this.setControlAngle())
   }
 
-  setAngle() {
+  movePanKnob(e) {
+    const { angle } = this.state;
+    const minangle = angle - 2 >= -100 ? angle - 2 : -100;
+    const maxangle = angle + 2 <= 100 ? angle + 2 : 100;
+
+    e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setPanAngle()) : (this.setState({angle: minangle}), this.setPanAngle())
+  }
+
+  setControlAngle() {
     const { angle, ticksArray } = this.state;
     const { ticks } = this.props
     const activeTicks = (Math.round(angle / 10) + 1);
-    const activeArray = [...ticksArray.slice(0, activeTicks).map((tick) => <div className={`${ticks} activeTick`}></div>)]
-    const unactiveArray = [...ticksArray.slice(0, 28 - activeTicks).map((tick) => <div className={ticks}></div>)]
 
-    this.setState({ticksArray: [...activeArray, ...unactiveArray]})
     this.setState({currentValue: Math.round((angle/270)*100)})
   }
+
+  setPanAngle() {
+    const {angle, ticksArray} = this.state
+    const { ticks } = this.props
+    const activeTicks = (Math.round(angle / 7.25));
+    const ticksSign = Math.sign(activeTicks)
+    // const activeArray = ticksSign >= 0 ? [...ticksArray.slice(0, activeTicks).map((tick) => <div className={`${ticks} activeTick`}></div>)] : [...ticksArray.slice(14, activeTicks).map((tick) => <div className={`${ticks} activeTick`}></div>)]
+    // console.log(activeArray)
+    // const unactiveArray = ticksSign > 0 ? [...ticksArray.slice(0, activeTicks + 14).map((tick) => <div className={ticks}></div>)] : [...ticksArray.slice(14, activeTicks).map((tick) => <div className={ticks}></div>)]
+    // ticksSign >= 0 ? this.setState([...activeArray, ...unactiveArray]) : null
+    // // this.setState({ticksArray: [...activeArray, ...unactiveArray]})
+    this.setState({currentValue: Math.round((angle/100)*100)})
+  }
+
+
 
   render() {
     const { angle, currentValue, ticksArray } = this.state;
@@ -46,7 +66,7 @@ export default class ControlKnob extends Component {
         <div className="knob-surround">
 
 
-        <div className="image" onWheel={e => this.moveKnob(e)}>
+        <div className="image" onWheel={e => knobClass.includes('control-knob') ? this.moveControlKnob(e) : this.movePanKnob(e)}>
           <img className={knobType} src={audioKnob} alt='' style={styles}/>
         {ticks === 'tick-effects' ? <p className='knob-label' style={styles}>{effect}</p> : ''}
         </div>

@@ -14,16 +14,20 @@ export default class Mixer extends Component {
 
         <TrackComponent trackClass={'track-component1'}
           audio={"/static/media/NuFunkCello.7dca3fb5.wav"}
-          playOnKey={'ArrowLeft'}/>
+          playOnKey={37}
+          keyName={'ArrowLeft'}/>
         <TrackComponent trackClass={'track-component2'}
           audio={"/static/media/Kick3.51983f5b.wav"}
-          playOnKey={'ArrowUp'}/>
+          playOnKey={38}
+          keyName={'ArrowUp'}/>
         <TrackComponent trackClass={'track-component3'}
           audio={"/static/media/Snare2.f644d349.wav"}
-          playOnKey={'ArrowDown'}/>
+          playOnKey={40}
+          keyName={'ArrowDown'}/>
         <TrackComponent trackClass={'track-component4'}
           audio={"/static/media/Closed-Hi-Hat1.1be04c81.wav"}
-          playOnKey={'ArrowRight'}/>
+          playOnKey={39}
+          keyName={'ArrowRight'}/>
       </div>
     )
   }

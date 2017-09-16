@@ -7,31 +7,22 @@ import goldButton from '../assets/goldButton.png';
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import TrackContainer from '../Containers/TrackContainer'
 
-const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, keyName, selectSound, addSound, changeVolume, volume, isMute, mute, removeSound, eventNum, handleEvents}) => {
+const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, keyName, selectSound, addSound, changeVolume, volume, isMute, mute, removeSound}) => {
   const trackNum = trackClass.slice(-1);
   const track = trackObject[trackNum]
-  eventNum ? playKey(true) : null
 
-  function playKey(bool) {
-    const keys = Object.keys(trackObject);
-    const soundArray = keys.map(sound => trackObject[sound])
-    if(sounds || soundArray.includes(sounds)) {sounds.stop()}
-    //fix bug on line 20
-    if(bool && track && track.gain.length) {track.stop()}
-    if(eventNum === playOnKey && track) {
-      track.play({
-        volume: volume[trackNum],
-        env: {hold: isMute[trackNum]}
-      })
-      handleEvents(null)
-    }
+  function stopSound() {
+    if(sounds) {sounds.stop()}
+    if(track && track.gain.length) {track.stop()}
   }
 
   function changeMute() {
+    stopSound()
     isMute[trackNum] ? mute(0, trackNum) : mute(10000, trackNum)
   }
 
   function setTrack() {
+    stopSound()
     if(selectedSound && selectedSound.sound) {
       setTrackObject(selectedSound.sound, trackNum)
     }
@@ -48,7 +39,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
   return (
     <div className={trackClass} >
       <div className='track-title-container'>
-        <div className={!track && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => (setTrack(), playKey(true))}>
+        <div className={!track && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => setTrack()}>
           <p className={!track && selectedSound.bool ? 'add-track-title' : 'track-title'}>{track ? track.source.split('/')[3].split('.')[0] : 'ADD TRACK'}</p>
         </div>
       </div>
@@ -71,7 +62,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
         <p className='volume-title'>Volume</p>
       </div>
       <div className='lower-control-container'>
-        <section className='mute-button' onClick={() => (changeMute(), playKey(true))}>
+        <section className='mute-button' onClick={() => changeMute()}>
           <div className={isMute[trackNum] ? 'mute-button-glass' : 'mute-button-glass mute-glass'}></div>
           <p className='mute-label'>MUTE</p>
           <img className='lower-control-button-ring' alt='' src={goldButton}/>
@@ -81,7 +72,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
           <p className='track-label'>EDIT</p>
           <img className='lower-control-button-ring' alt='' src={goldButton}/>
         </section>
-        <section className='remove-button' onClick={() => (removeSound(trackNum), playKey(true))}>
+        <section className='remove-button' onClick={() => (stopSound(), removeSound(trackNum))}>
           <div className={!track ? 'remove-button-glass-off' : 'remove-button-glass'}></div>
           <p className='remove-label'>REMOVE</p>
           <img className='lower-control-button-ring' alt='' src={goldButton}/>

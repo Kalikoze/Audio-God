@@ -11,7 +11,10 @@ class SoundLibrary extends Component {
     const { sounds, addSound } = this.props
     if(sounds) {sounds.stop()}
     var audio = new Wad({source: sample});
-    audio.play();
+    audio.play({
+      volume: .5,
+      env: {hold: 10000}
+    });
     addSound(audio)
   }
 

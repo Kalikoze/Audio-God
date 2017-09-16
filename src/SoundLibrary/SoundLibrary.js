@@ -5,10 +5,16 @@ import blackBackground from '../assets/black-background.jpg';
 import melodicSamples from '../Melodic-Samples/index';
 import drumSamples from '../Drum-Samples/index';
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer';
+import TrackContainer from '../Containers/TrackContainer'
 
 class SoundLibrary extends Component {
   playSound(sample) {
-    const { sounds, addSound } = this.props
+    const { sounds, addSound, trackObject } = this.props
+    const trackKeys = Object.keys(trackObject)
+    trackKeys.map(track => {
+      const sound = trackObject[track];
+      if(sound && sound.gain.length) {sound.stop()}
+    })
     if(sounds) {sounds.stop()}
     var audio = new Wad({source: sample});
     audio.play({
@@ -52,4 +58,4 @@ class SoundLibrary extends Component {
   }
 }
 
-export default SoundLibraryContainer(SoundLibrary)
+export default TrackContainer(SoundLibraryContainer(SoundLibrary))

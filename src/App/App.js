@@ -8,20 +8,22 @@ import './App.css'
 import backgroundImage from '../assets/dark-wood.jpg';
 import TrackContainer from '../Containers/TrackContainer'
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
+import { Distortion, Input, Output } from 'audio-effects';
 
 class App extends Component {
   playKey(keyCode) {
-    const { trackObject, volume, isMute } = this.props
+    const { sounds, trackObject, volume, isMute, pan, selectedSound } = this.props
     const keys = [37, 38, 40, 39]
     let track
     keys.map((key, i) => keyCode === key ? track = trackObject[i+1] : null )
     if(track && track.gain.length) {track.stop()}
+    if(sounds && sounds.gain.length) {sounds.stop()}
     if (track) {
-      console.log(track)
-        track.play({
-          volume: volume[track.trackNum] || .5,
-          env: {hold: isMute[track.trackNum], attack: 0, decay: 0},
-        })
+      track.play({
+        volume: volume[track.trackNum] || .5,
+        env: {hold: isMute[track.trackNum]},
+        panning: pan[track.trackNum],
+      })
     }
   }
 

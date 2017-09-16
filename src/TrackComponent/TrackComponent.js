@@ -44,7 +44,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
         </div>
       </div>
       <div className='pan-container'>
-        <ControlKnob knobClass="pan" knobType='pan-knob'
+        <ControlKnob knobClass="pan" trackNum={trackNum} knobType='pan-knob'
         ticks={"tick-pans"} valueContainer='pan-value'/>
       </div>
       <div className="volume-container">

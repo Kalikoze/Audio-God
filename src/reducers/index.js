@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { displayLogin, loginEval, errorMessage, sounds, soundsArray, selectSound, trackObject, changeSound, mute, editTrack } from './reducers'
+import { displayLogin, loginEval, errorMessage, sounds, soundsArray, selectSound, trackObject, changeSound, mute, editTrack, changePan } from './reducers'
 
 const rootReducer = combineReducers({
   displayLogin,
@@ -11,7 +11,8 @@ const rootReducer = combineReducers({
   trackObject,
   changeSound,
   mute,
-  editTrack
+  editTrack,
+  changePan
 })
 
 export default rootReducer

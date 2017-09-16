@@ -3,14 +3,23 @@ import ControlKnob from '../ControlKnob/ControlKnob'
 import './AudioEffects.css'
 import AudioControlsBack from '../assets/audio-effects-background.png';
 import scale from '../assets/scale.png';
+import TrackContainer from '../Containers/TrackContainer'
 
-export default class AudioEffects extends Component {
+class AudioEffects extends Component {
+
   render() {
+
+    const { selectedTrack } = this.props
+    console.log(selectedTrack)
     return (
       <div className="track-controls">
 
         <div className='track-controls-inner-box'>
           <p className='audio-controls-title'>Audio Controls</p>
+          <div className='effects-value'>
+            <p><span className="current-value">1</span></p>
+          </div>
+
 
           <img className='audio-controls-backdrop' alt='' src={AudioControlsBack}/>
           <img className='scale' alt='' src={scale}/>
@@ -38,3 +47,6 @@ export default class AudioEffects extends Component {
     )
   }
 }
+
+
+export default TrackContainer(AudioEffects)

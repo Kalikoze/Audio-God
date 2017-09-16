@@ -33,7 +33,10 @@ export default class ControlKnob extends Component {
     const { angle, ticksArray } = this.state;
     const { ticks } = this.props
     const activeTicks = (Math.round(angle / 10) + 1);
+    const activeArray = [...ticksArray.slice(0, activeTicks).map((tick) => <div className={`${ticks} activeTick`}></div>)]
+    const unactiveArray = [...ticksArray.slice(0, 28 - activeTicks).map((tick) => <div className={ticks}></div>)]
 
+    this.setState({ticksArray: [...activeArray, ...unactiveArray]})
     this.setState({currentValue: Math.round((angle/270)*100)})
   }
 

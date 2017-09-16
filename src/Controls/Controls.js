@@ -20,10 +20,6 @@ class Controls extends Component {
     });
   }
 
-
-
-
-
   render() {
     const { renderLogin, createErrorMessage, loginEval } = this.props
 

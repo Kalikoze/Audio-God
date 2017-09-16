@@ -7,13 +7,26 @@ import SoundLibrary from '../SoundLibrary/SoundLibrary.js';
 import './App.css'
 import backgroundImage from '../assets/dark-wood.jpg';
 import TrackContainer from '../Containers/TrackContainer'
+import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 
 class App extends Component {
+  playKey(keyCode) {
+    const { trackObject, volume, isMute } = this.props
+    const keys = [37, 38, 40, 39]
+    let track
+    keys.map((key, i) => keyCode === key ? track = trackObject[i+1] : null )
+    if(track && track.gain.length) {track.stop()}
+    if (track) {
+        track.play({
+          volume: volume[track.trackNum] || .5,
+          env: {hold: isMute[track.trackNum]}
+        })
+    }
+  }
 
   render() {
-    const { handleEvents } = this.props
     return (
-      <div className="App" tabIndex='0' onKeyDown={e => handleEvents(e.keyCode)}>
+      <div className="App" tabIndex='0' onKeyDown={e => this.playKey(e.keyCode)}>
         <div className='background-container'>
           <img className='background-image' alt='' src={backgroundImage}/>
         </div>
@@ -35,4 +48,4 @@ class App extends Component {
   }
 }
 
-export default TrackContainer(App);
+export default TrackContainer(SoundLibraryContainer(App));

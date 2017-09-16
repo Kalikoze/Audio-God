@@ -64,7 +64,7 @@ export const selectSound = (state=false, action) => {
 export const trackObject = (state={}, action) => {
   switch(action.type) {
     case 'TRACK_OBJECT':
-      return Object.assign({}, state, {[action.trackNum]: new Wad({source: action.sound})})
+      return Object.assign({}, state, {[action.trackNum]: Object.assign(new Wad({source: action.sound}), {trackNum: action.trackNum})})
     case 'REMOVE_SOUND':
       return Object.assign({}, state, {[action.trackNum]: null})
 
@@ -73,16 +73,6 @@ export const trackObject = (state={}, action) => {
   }
 }
 
-export const handleEvents = (state=null, action) => {
-   switch(action.type) {
-    case 'HANDLE_EVENTS':
-      return action.eventKey
-
-    default:
-      return state
-   }
- }
- 
 export const changeSound = (state={}, action) => {
   switch(action.type) {
     case 'CHANGE_VOLUME':

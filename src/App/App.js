@@ -17,9 +17,10 @@ class App extends Component {
     keys.map((key, i) => keyCode === key ? track = trackObject[i+1] : null )
     if(track && track.gain.length) {track.stop()}
     if (track) {
+      console.log(track)
         track.play({
           volume: volume[track.trackNum] || .5,
-          env: {hold: isMute[track.trackNum]}
+          env: {hold: isMute[track.trackNum], attack: 0, decay: 0},
         })
     }
   }

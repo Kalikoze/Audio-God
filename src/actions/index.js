@@ -74,3 +74,10 @@ export const removeSound = (trackNum) => {
     trackNum
   }
 }
+
+export const editTrack = (trackNum) => {
+  return {
+    type: 'EDIT_TRACK',
+    trackNum
+  }
+}

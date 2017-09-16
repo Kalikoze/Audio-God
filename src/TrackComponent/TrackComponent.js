@@ -7,7 +7,7 @@ import goldButton from '../assets/goldButton.png';
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import TrackContainer from '../Containers/TrackContainer'
 
-const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, keyName, selectSound, addSound, changeVolume, volume, isMute, mute, removeSound}) => {
+const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrackObject, playOnKey, keyName, selectSound, addSound, changeVolume, volume, isMute, mute, removeSound, editTrack}) => {
   const trackNum = trackClass.slice(-1);
   const track = trackObject[trackNum]
 
@@ -67,7 +67,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
           <p className='mute-label'>MUTE</p>
           <img className='lower-control-button-ring' alt='' src={goldButton}/>
         </section>
-        <section className='track-button'>
+        <section className='track-button' onClick={() => track ? editTrack(trackNum) : null}>
           <div className={!track ? 'track-button-glass-off' : 'track-button-glass'}></div>
           <p className='track-label'>EDIT</p>
           <img className='lower-control-button-ring' alt='' src={goldButton}/>

@@ -64,7 +64,9 @@ export const selectSound = (state=false, action) => {
 export const trackObject = (state={}, action) => {
   switch(action.type) {
     case 'TRACK_OBJECT':
-      return Object.assign({}, state, {[action.trackNum]: Object.assign(new Wad({source: action.sound}), {trackNum: action.trackNum})})
+      return Object.assign({}, state, {[action.trackNum]: Object.assign(new Wad({
+        source: action.sound,
+      }), {trackNum: action.trackNum})})
     case 'REMOVE_SOUND':
       return Object.assign({}, state, {[action.trackNum]: null})
 
@@ -97,5 +99,21 @@ export const mute = (state=muteDefault, action) => {
 
     default:
       return state;
+  }
+}
+
+const defaultAudioEffects = {
+  1: {
+
+  }
+}
+
+export const editTrack = (state={1: {}}, action) => {
+  switch(action.type) {
+    case 'EDIT_TRACK':
+      return Object.assign({}, state, {[action.trackNum]: {} })
+
+    default:
+        return state;
   }
 }

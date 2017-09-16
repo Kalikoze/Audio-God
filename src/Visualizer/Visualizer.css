@@ -131,7 +131,7 @@ z-index: 2;
   opacity: 1;
   color: white;
   font-size: 20px;
-  animation: introloginTitle infinite 2s;
+  /*animation: introloginTitle infinite 2s;*/
 }
 
 @keyframes introloginTitle {

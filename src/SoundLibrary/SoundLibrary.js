@@ -32,7 +32,7 @@ class SoundLibrary extends Component {
 
     return (
       <div className="sound-library">
-        <p className='library-title'>Library</p>
+        <p className='library-title'>Library Selected Track:</p>
         <div className='selected-title-box'>
           <p className='selected-title'>{selectedSound.bool ? selectedSound.name : null}</p>
         </div>

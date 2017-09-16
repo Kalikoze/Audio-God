@@ -40,7 +40,7 @@ class CreateAccount extends Component {
           {errorMessage.error ? <p className='create-error'>{errorMessage.error}</p> : null}
         </div>
         <input type='email' className='create-username' placeholder='  USER EMAIL' value={email} onChange={e => this.setState({email: e.target.value})}/>
-        <input className='create-password' placeholder='  USER PASSWORD'  type='password' value={password} onChange={e => this.setState({password: e.target.value})}/>
+        <input className='create-password' placeholder='  USER PASSWORD (6 CHARACTERS MIN)'  type='password' value={password} onChange={e => this.setState({password: e.target.value})}/>
         <div className='create-button' onClick={() => this.createAccount(email, password)}>CREATE ACCOUNT</div>
       </div>
     )

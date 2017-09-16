@@ -24,30 +24,23 @@ body  {
 
 .background-container {
   width: 100%;
-    min-width: 1200px;
+  min-width: 1200px;
   height: 100vh;
   position: absolute;
-  z-index: -1000;
   overflow: hidden;
+  z-index: -1000;
 }
 
 .background-image {
   width: 100%;
   object-fit: cover;
   position: absolute;
-  top: 0px;
   left: 0px;
 }
 
 .component-container  {
-  /*width: 100%;*/
   width: 1200px;
-  /*min-width: 1000px;*/
   height: 100%;
-  /*position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;*/
 }
 
 .controls-container {

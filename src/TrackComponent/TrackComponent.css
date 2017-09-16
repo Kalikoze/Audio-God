@@ -144,7 +144,7 @@
   height: 45%;
   /*background: purple;*/
   position: relative;
-  top: -17px;
+  top: -8px;
 }
 
 .volume-plate {
@@ -233,9 +233,9 @@ border-radius: 5px;
 
 .volume-title-container  {
   width: 100%;
-  height: 30px;
+  height: 22px;
   position: absolute;
-  top: 260px;
+  top: 266px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,7 +243,8 @@ border-radius: 5px;
 
 .volume-title  {
   font-family: 'Yellowtail', cursive;
-  font-size: 16px;
+    font-family: "Varela Round", sans-serif;
+  font-size: 10px;
   /*position: absolute;
   top: 0px;
   left: 0px;*/
@@ -254,7 +255,7 @@ border-radius: 5px;
 .lower-control-container {
   height: 22%;
   width: 100%;
-  margin-top: 7px;
+  margin-top: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -611,8 +612,9 @@ animation-iteration-count: infinite;
 
 .key-title  {
   font-family: 'Yellowtail', cursive;
+    font-family: "Varela Round", sans-serif;
 /* font-family: "Varela Round", sans-serif; */
-font-size: 16px;
+font-size: 14px;
 color: white;
 margin-top: 7px;
 /* color: #c8a85f; */

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './ControlKnob.css';
 import audioKnob from '../assets/audio-knob.png';
+import TrackContainer from '../Containers/TrackContainer'
 
-export default class ControlKnob extends Component {
+class ControlKnob extends Component {
   constructor(props) {
     super(props);
     const { ticks } = this.props
@@ -23,10 +24,12 @@ export default class ControlKnob extends Component {
 
   movePanKnob(e) {
     const { angle } = this.state;
+    const { trackNum, changePan } = this.props
     const minangle = angle - 2 >= -100 ? angle - 2 : -100;
     const maxangle = angle + 2 <= 100 ? angle + 2 : 100;
 
     e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setPanAngle()) : (this.setState({angle: minangle}), this.setPanAngle())
+    changePan(angle/100, trackNum)
   }
 
   setControlAngle() {
@@ -90,3 +93,5 @@ export default class ControlKnob extends Component {
     )
   }
 }
+
+export default TrackContainer(ControlKnob)

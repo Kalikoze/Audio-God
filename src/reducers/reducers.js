@@ -80,8 +80,18 @@ export const changeSound = (state={}, action) => {
     case 'CHANGE_VOLUME':
       return Object.assign({}, state, {[action.trackNum]: action.volume})
 
-      default:
-        return state
+    default:
+      return state
+  }
+}
+
+export const changePan = (state={}, action) => {
+  switch(action.type) {
+    case 'CHANGE_PAN':
+      return Object.assign({}, state, {[action.trackNum]: action.pan })
+
+    default:
+      return state
   }
 }
 
@@ -114,6 +124,6 @@ export const editTrack = (state={1: {}}, action) => {
       return Object.assign({}, state, {[action.trackNum]: {} })
 
     default:
-        return state;
+      return state;
   }
 }

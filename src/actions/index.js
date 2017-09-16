@@ -60,6 +60,14 @@ export const changeVolume = (volume, trackNum) => {
   }
 }
 
+export const changePan = (pan, trackNum) => {
+  return {
+    type: 'CHANGE_PAN',
+    pan,
+    trackNum
+  }
+}
+
 export const mute = (num, trackNum) => {
   return {
     type: 'MUTE',

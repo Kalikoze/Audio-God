@@ -15,7 +15,7 @@ let src
 
 class App extends Component {
   playKey(keyCode) {
-    const { sounds, trackObject, volume, isMute, pan, selectedSound, audioEffects } = this.props
+    const { sounds, trackObject, volume, isMute, pan, fadeIn, selectedSound, audioEffects } = this.props
     const keys = [37, 38, 40, 39]
     let track
     keys.map((key, i) => keyCode === key ? track = trackObject[i+1] : null )
@@ -24,7 +24,7 @@ class App extends Component {
     if (track) {
       const trackSettings = {
         volume: volume[track.trackNum] || .5,
-        env: {hold: isMute[track.trackNum]},
+        env: {hold: isMute[track.trackNum], attack: fadeIn[track.trackNum]},
         panning: pan[track.trackNum],
       }
       let timeOut = 0

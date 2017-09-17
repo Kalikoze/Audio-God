@@ -95,6 +95,16 @@ export const changePan = (state={}, action) => {
   }
 }
 
+export const fadeIn = (state={}, action) => {
+  switch(action.type) {
+    case 'FADE_IN':
+      return Object.assign({}, state, {[action.trackNum]: action.value})
+
+    default:
+      return state
+  }
+}
+
 const muteDefault = {
   1: 10000,
   2: 10000,

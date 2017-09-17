@@ -112,16 +112,62 @@ export const mute = (state=muteDefault, action) => {
   }
 }
 
-const defaultAudioEffects = {
-  1: {
+export const selectTrack = (state=1, action) => {
+  switch(action.type) {
+    case 'SELECT_TRACK':
+      return action.trackNum
 
+    default:
+      return state;
   }
 }
 
-export const editTrack = (state={1: {}}, action) => {
+const defaultAudioEffects = {
+  1: {
+    Echo: 0,
+    Delay: 0,
+    Wetness: 0,
+  },
+  2: {
+    Echo: 0,
+    Delay: 0,
+    Wetness: 0,
+  },
+  3: {
+    Echo: 0,
+    Delay: 0,
+    Wetness: 0,
+  },
+  4: {
+    Echo: 0,
+    Delay: 0,
+    Wetness: 0,
+  }
+}
+
+export const editAudioEffects = (state=defaultAudioEffects, action) => {
   switch(action.type) {
-    case 'EDIT_TRACK':
-      return Object.assign({}, state, {[action.trackNum]: {} })
+    case 'ECHO':
+      return Object.assign({}, state, {[action.trackNum]: Object.assign({}, state.trackNum,
+        {
+          Echo: action.value,
+          Delay: state[action.trackNum].Delay,
+          Wetness: state[action.trackNum].Wetness
+        })})
+    case 'DELAY':
+      return Object.assign({}, state, {[action.trackNum]: Object.assign({}, state.trackNum,
+        {
+          Echo: state[action.trackNum].Echo,
+          Delay: action.value,
+          Wetness: state[action.trackNum].Wetness
+        })})
+    case 'WETNESS':
+    return Object.assign({}, state, {[action.trackNum]: Object.assign({}, state.trackNum,
+      {
+        Echo: state[action.trackNum].Echo,
+        Delay: state[action.trackNum].Delay,
+        Wetness: action.value
+      })})
 
     default:
       return state;

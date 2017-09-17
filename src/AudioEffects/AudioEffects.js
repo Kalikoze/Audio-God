@@ -10,7 +10,6 @@ class AudioEffects extends Component {
   render() {
 
     const { selectedTrack } = this.props
-    console.log(selectedTrack)
     return (
       <div className="track-controls">
 
@@ -27,22 +26,16 @@ class AudioEffects extends Component {
           <ControlKnob knobClass='control-knob1' knobType='knob-effects' ticks="tick-effects"
           effect='Reverb' valueContainer='effects-value'/>
           <ControlKnob knobClass='control-knob2' knobType='knob-effects' ticks="tick-effects"
-          effect='Echo' valueContainer='effects-value'/>
+          effect='Thing' selected={selectedTrack} valueContainer='effects-value'/>
           <ControlKnob knobClass='control-knob3' knobType='knob-effects' ticks="tick-effects"
           effect='Distortion' valueContainer='effects-value'/>
           <ControlKnob knobClass='control-knob4' knobType='knob-effects' ticks="tick-effects"
-          effect='Thing' valueContainer='effects-value'/>
+          effect='Echo' valueContainer='effects-value'/>
           <ControlKnob knobClass='control-knob5' knobType='knob-effects' ticks="tick-effects"
-          effect='Thing' valueContainer='effects-value'/>
+          effect='Delay' valueContainer='effects-value'/>
           <ControlKnob knobClass='control-knob6' knobType='knob-effects' ticks="tick-effects"
-          effect='Thing' valueContainer='effects-value'/>
+          effect='Wetness' valueContainer='effects-value'/>
         </div>
-
-
-
-
-
-
       </div>
     )
   }

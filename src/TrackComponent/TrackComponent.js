@@ -38,6 +38,9 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
 
   return (
     <div className={trackClass} >
+      <div className='track-number-box'>
+        <p className='track-number-label'>Track {trackNum}</p>
+      </div>  
       <div className='track-title-container'>
         <div className={!track && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => setTrack()}>
           <p className={!track && selectedSound.bool ? 'add-track-title' : 'track-title'}>{track ? track.source.split('/')[3].split('.')[0] : 'ADD TRACK'}</p>

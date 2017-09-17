@@ -16,8 +16,8 @@ class AudioEffects extends Component {
 
         <div className='track-controls-inner-box'>
           <p className='audio-controls-title'>Audio Controls</p>
-          <div className='effects-value'>
-            <p><span className="current-value">1</span></p>
+          <div className='track-display-box'>
+            <p><span className="track-number-display">EDIT TRACK: 1</span></p>
           </div>
 
 

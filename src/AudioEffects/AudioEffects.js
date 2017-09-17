@@ -8,15 +8,14 @@ import TrackContainer from '../Containers/TrackContainer'
 class AudioEffects extends Component {
 
   render() {
-
-    const { selectedTrack } = this.props
+    const { selectedTrack } = this.props;
     return (
       <div className="track-controls">
 
         <div className='track-controls-inner-box'>
           <p className='audio-controls-title'>Audio Controls</p>
           <div className='track-display-box'>
-            <p><span className="track-number-display">EDIT TRACK: 1</span></p>
+            <p><span className="track-number-display">EDIT TRACK: {selectedTrack}</span></p>
           </div>
 
 
@@ -24,7 +23,7 @@ class AudioEffects extends Component {
           <img className='scale' alt='' src={scale}/>
           <div className='scale-backdrop'></div>
           <ControlKnob knobClass='control-knob1' knobType='knob-effects' ticks="tick-effects"
-          effect='Reverb' valueContainer='effects-value'/>
+          effect='Fade In' valueContainer='effects-value'/>
           <ControlKnob knobClass='control-knob2' knobType='knob-effects' ticks="tick-effects"
           effect='Thing' selected={selectedTrack} valueContainer='effects-value'/>
           <ControlKnob knobClass='control-knob3' knobType='knob-effects' ticks="tick-effects"

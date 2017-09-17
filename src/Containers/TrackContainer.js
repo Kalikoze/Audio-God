@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { trackObject, changeVolume, mute, removeSound, selectTrack, changePan, echo, delay, wetness } from '../actions/index'
+import { trackObject, changeVolume, mute, removeSound, selectTrack, changePan, echo, delay, wetness, fadeIn } from '../actions/index'
 
 const mapStateToProps = (store) => {
   return {
@@ -8,7 +8,8 @@ const mapStateToProps = (store) => {
     isMute: store.mute,
     selectedTrack: store.selectTrack,
     pan: store.changePan,
-    audioEffects: store.editAudioEffects
+    audioEffects: store.editAudioEffects,
+    fadeIn: store.fadeIn
   }
 }
 
@@ -22,7 +23,8 @@ const mapDispatchToProps = dispatch => {
     changePan: (pan, trackNum) => dispatch(changePan(pan, trackNum)),
     echo: (value, trackNum) => dispatch(echo(value, trackNum)),
     delay: (value, trackNum) => dispatch(delay(value, trackNum)),
-    wetness: (value, trackNum) => dispatch(wetness(value, trackNum))
+    wetness: (value, trackNum) => dispatch(wetness(value, trackNum)),
+    changeFade: (value, trackNum) => dispatch(fadeIn(value, trackNum))
   }
 }
 

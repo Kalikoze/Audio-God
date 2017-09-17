@@ -16,12 +16,13 @@ class ControlKnob extends Component {
 
   moveControlKnob(e) {
     const { angle } = this.state;
-    const { effect, echo, delay, wetness, selectedTrack } = this.props
+    const { effect, echo, delay, wetness, changeFade, selectedTrack } = this.props
     const minangle = angle - 2 >= 0 ? angle - 2 : 0;
     const maxangle = angle + 2 <= 270 ? angle + 2 : 270;
     effect === 'Echo' ? echo(Math.round(angle/67.5), selectedTrack) : null
     effect === 'Delay' ? delay(Math.round(angle * 3.7), selectedTrack) : null
     effect === 'Wetness' ? wetness((angle/270), selectedTrack) : null
+    effect === 'Fade In' ? changeFade((angle/54), selectedTrack) : null
 
     e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setControlAngle()) : (this.setState({angle: minangle}), this.setControlAngle())
   }
@@ -32,7 +33,7 @@ class ControlKnob extends Component {
     const minangle = angle - 2 >= -100 ? angle - 2 : -100;
     const maxangle = angle + 2 <= 100 ? angle + 2 : 100;
 
-    e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setPanAngle()) : (this.setState({angle: minangle}), this.setPanAngle())
+    e.nativeEvent.wheelDelta > 0 ? this.setState({angle: maxangle}) : this.setState({angle: minangle})
     changePan(angle/100, trackNum)
   }
 
@@ -44,29 +45,11 @@ class ControlKnob extends Component {
     const unactiveArray = [...ticksArray.slice(0, 28 - activeTicks).map((tick) => <div className={ticks}></div>)]
 
     this.setState({ticksArray: [...activeArray, ...unactiveArray]})
-
-    this.setState({currentValue: Math.round((angle/270)*100)})
-    effect === 'Echo' ? this.setState({currentValue: Math.round(angle/67.5)}) : null
   }
-
-  setPanAngle() {
-    const {angle, ticksArray} = this.state
-    const { ticks } = this.props
-    const activeTicks = (Math.round(angle / 7.25));
-    const ticksSign = Math.sign(activeTicks)
-    // const activeArray = ticksSign >= 0 ? [...ticksArray.slice(0, activeTicks).map((tick) => <div className={`${ticks} activeTick`}></div>)] : [...ticksArray.slice(14, activeTicks).map((tick) => <div className={`${ticks} activeTick`}></div>)]
-    // console.log(activeArray)
-    // const unactiveArray = ticksSign > 0 ? [...ticksArray.slice(0, activeTicks + 14).map((tick) => <div className={ticks}></div>)] : [...ticksArray.slice(14, activeTicks).map((tick) => <div className={ticks}></div>)]
-    // ticksSign >= 0 ? this.setState([...activeArray, ...unactiveArray]) : null
-    // // this.setState({ticksArray: [...activeArray, ...unactiveArray]})
-    this.setState({currentValue: Math.round((angle/100)*100)})
-  }
-
-
 
   render() {
     const { angle, currentValue, ticksArray } = this.state;
-    const { knobClass, knobType, effect, ticks, valueContainer } = this.props;
+    const { knobClass, knobType, effect, ticks, valueContainer, selectedTrack, audioEffects, pan, trackNum, fadeIn } = this.props;
     const y = angle;
     const styles = {
       transform: `rotate(${y}deg)`
@@ -76,8 +59,6 @@ class ControlKnob extends Component {
       <div className={knobClass}>
 
         <div className="knob-surround">
-
-
         <div className="image" onWheel={e => knobClass.includes('control-knob') ? this.moveControlKnob(e) : this.movePanKnob(e)}>
           <img className={knobType} src={audioKnob} alt='' style={styles}/>
         {ticks === 'tick-effects' ? <p className='knob-label' style={styles}>{effect}</p> : ''}
@@ -86,14 +67,18 @@ class ControlKnob extends Component {
           {ticks === "tick-effects" ? <span className="max">Max</span> : ''}
           {ticks === 'tick-pans' ? <span className='left'>L</span> : ''}
           {ticks === 'tick-pans' ? <span className='right'>R</span> : ''}
-
-
           <div className="ticks">
             {ticksArray}
           </div>
         </div>
         <div className={valueContainer}>
-          <p><span className="current-value">{currentValue}</span></p>
+          <p><span className="current-value">
+            {knobClass === 'pan' ? Math.round(pan[trackNum]*100) || 0 : null}
+            {effect === 'Fade In' ? Math.round(fadeIn[selectedTrack] * 20) || 0 : null}
+            {effect === 'Echo' ? audioEffects[selectedTrack].Echo : null}
+            {effect === 'Delay' ? Math.round(audioEffects[selectedTrack].Delay/10) : null}
+            {effect === 'Wetness' ? Math.round(audioEffects[selectedTrack].Wetness*100) : null}
+          </span></p>
         </div>
       </div>
     )

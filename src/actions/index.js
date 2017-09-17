@@ -90,6 +90,14 @@ export const selectTrack = (trackNum) => {
   }
 }
 
+export const fadeIn = (value, trackNum) => {
+  return {
+    type: 'FADE_IN',
+    value,
+    trackNum
+  }
+}
+
 export const echo = (value, trackNum) => {
   return {
     type: 'ECHO',

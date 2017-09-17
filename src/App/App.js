@@ -12,18 +12,25 @@ import { Distortion, Input, Output } from 'audio-effects';
 
 class App extends Component {
   playKey(keyCode) {
-    const { sounds, trackObject, volume, isMute, pan, selectedSound } = this.props
+    const { sounds, trackObject, volume, isMute, pan, selectedSound, audioEffects } = this.props
     const keys = [37, 38, 40, 39]
     let track
     keys.map((key, i) => keyCode === key ? track = trackObject[i+1] : null )
     if(track && track.gain.length) {track.stop()}
     if(sounds && sounds.gain.length) {sounds.stop()}
     if (track) {
-      track.play({
+      const trackSettings = {
         volume: volume[track.trackNum] || .5,
         env: {hold: isMute[track.trackNum]},
         panning: pan[track.trackNum],
-      })
+      }
+      let timeOut = 0
+      for(let i = 0; i < audioEffects[track.trackNum].Echo; i++) {
+        timeOut += audioEffects[track.trackNum].Delay
+        const newTrackSettings = Object.assign({}, trackSettings, {volume: audioEffects[track.trackNum].Wetness})
+        setTimeout(() => track.play(newTrackSettings), timeOut)
+      }
+      track.play(trackSettings)
     }
   }
 

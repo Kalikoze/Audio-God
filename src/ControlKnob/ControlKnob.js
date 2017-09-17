@@ -16,8 +16,12 @@ class ControlKnob extends Component {
 
   moveControlKnob(e) {
     const { angle } = this.state;
+    const { effect, echo, delay, wetness, selectedTrack } = this.props
     const minangle = angle - 2 >= 0 ? angle - 2 : 0;
     const maxangle = angle + 2 <= 270 ? angle + 2 : 270;
+    effect === 'Echo' ? echo(Math.round(angle/67.5), selectedTrack) : null
+    effect === 'Delay' ? delay(Math.round(angle * 3.7), selectedTrack) : null
+    effect === 'Wetness' ? wetness((angle/270), selectedTrack) : null
 
     e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setControlAngle()) : (this.setState({angle: minangle}), this.setControlAngle())
   }
@@ -34,13 +38,15 @@ class ControlKnob extends Component {
 
   setControlAngle() {
     const { angle, ticksArray } = this.state;
-    const { ticks } = this.props
+    const { ticks, effect } = this.props
     const activeTicks = (Math.round(angle / 10) + 1);
     const activeArray = [...ticksArray.slice(0, activeTicks).map((tick) => <div className={`${ticks} activeTick`}></div>)]
     const unactiveArray = [...ticksArray.slice(0, 28 - activeTicks).map((tick) => <div className={ticks}></div>)]
 
     this.setState({ticksArray: [...activeArray, ...unactiveArray]})
+
     this.setState({currentValue: Math.round((angle/270)*100)})
+    effect === 'Echo' ? this.setState({currentValue: Math.round(angle/67.5)}) : null
   }
 
   setPanAngle() {

@@ -83,9 +83,33 @@ export const removeSound = (trackNum) => {
   }
 }
 
-export const editTrack = (trackNum) => {
+export const selectTrack = (trackNum) => {
   return {
-    type: 'EDIT_TRACK',
+    type: 'SELECT_TRACK',
+    trackNum
+  }
+}
+
+export const echo = (value, trackNum) => {
+  return {
+    type: 'ECHO',
+    value,
+    trackNum
+  }
+}
+
+export const delay = (value, trackNum) => {
+  return {
+    type: 'DELAY',
+    value,
+    trackNum
+  }
+}
+
+export const wetness = (value, trackNum) => {
+  return {
+    type: 'WETNESS',
+    value,
     trackNum
   }
 }

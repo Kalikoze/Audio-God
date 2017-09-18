@@ -46,7 +46,7 @@ class App extends Component {
 
       audio.src = file;
       audio.load();
-      audio.play();
+      // audio.play();
       context = new AudioContext();
       src = context.createMediaElementSource(audio);
       var analyser = context.createAnalyser();

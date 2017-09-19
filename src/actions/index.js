@@ -121,3 +121,19 @@ export const wetness = (value, trackNum) => {
     trackNum
   }
 }
+
+export const changeTempo = (value, trackNum) => {
+  return {
+    type: 'CHANGE_TEMPO',
+    value,
+    trackNum
+  }
+}
+
+export const changeDistortion = (value, trackNum) => {
+  return {
+    type: 'CHANGE_DISTORTION',
+    value,
+    trackNum
+  }
+}

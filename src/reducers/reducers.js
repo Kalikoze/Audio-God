@@ -138,21 +138,29 @@ const defaultAudioEffects = {
     Echo: 0,
     Delay: 0,
     Wetness: 0,
+    Tempo: 1,
+    Distortion: 0
   },
   2: {
     Echo: 0,
     Delay: 0,
     Wetness: 0,
+    Tempo: 1,
+    Distortion: 0
   },
   3: {
     Echo: 0,
     Delay: 0,
     Wetness: 0,
+    Tempo: 1,
+    Distortion: 0
   },
   4: {
     Echo: 0,
     Delay: 0,
     Wetness: 0,
+    Tempo: 1,
+    Distortion: 0
   }
 }
 
@@ -163,22 +171,46 @@ export const editAudioEffects = (state=defaultAudioEffects, action) => {
         {
           Echo: action.value,
           Delay: state[action.trackNum].Delay,
-          Wetness: state[action.trackNum].Wetness
+          Wetness: state[action.trackNum].Wetness,
+          Tempo: state[action.trackNum].Tempo,
+          Distortion: state[action.trackNum].Distortion
         })})
     case 'DELAY':
       return Object.assign({}, state, {[action.trackNum]: Object.assign({}, state.trackNum,
         {
           Echo: state[action.trackNum].Echo,
           Delay: action.value,
-          Wetness: state[action.trackNum].Wetness
+          Wetness: state[action.trackNum].Wetness,
+          Tempo: state[action.trackNum].Tempo,
+          Distortion: state[action.trackNum].Distortion
         })})
     case 'WETNESS':
-    return Object.assign({}, state, {[action.trackNum]: Object.assign({}, state.trackNum,
-      {
-        Echo: state[action.trackNum].Echo,
-        Delay: state[action.trackNum].Delay,
-        Wetness: action.value
-      })})
+      return Object.assign({}, state, {[action.trackNum]: Object.assign({}, state.trackNum,
+        {
+          Echo: state[action.trackNum].Echo,
+          Delay: state[action.trackNum].Delay,
+          Wetness: action.value,
+          Tempo: state[action.trackNum].Tempo,
+          Distortion: state[action.trackNum].Distortion
+        })})
+    case 'CHANGE_TEMPO':
+      return Object.assign({}, state, {[action.trackNum]: Object.assign({}, state.trackNum,
+        {
+          Echo: state[action.trackNum].Echo,
+          Delay: state[action.trackNum].Delay,
+          Wetness: state[action.trackNum].Wetness,
+          Tempo: action.value,
+          Distortion: state[action.trackNum].Distortion
+        })})
+    case 'CHANGE_DISTORTION':
+      return Object.assign({}, state, {[action.trackNum]: Object.assign({}, state.trackNum,
+        {
+          Echo: state[action.trackNum].Echo,
+          Delay: state[action.trackNum].Delay,
+          Wetness: state[action.trackNum].Wetness,
+          Tempo: state[action.trackNum].Tempo,
+          Distortion: action.value
+        })})
 
     default:
       return state;

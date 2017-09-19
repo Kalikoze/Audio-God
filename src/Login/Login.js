@@ -22,7 +22,6 @@ class Login extends Component {
     });
 
     var user = firebase.auth().currentUser;
-    console.log(user)
 
     user ? (createAccount(user.email, true), createErrorMessage('')) : (createAccount('', false), createErrorMessage('Invalid email or password'))
   }

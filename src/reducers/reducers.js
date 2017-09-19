@@ -1,4 +1,5 @@
-import Wad from 'web-audio-daw';
+
+  import Wad from 'web-audio-daw';
 
 export const displayLogin = (state={isLoginDisplayed: false, isCreateDisplayed: false}, action) => {
   switch(action.type) {

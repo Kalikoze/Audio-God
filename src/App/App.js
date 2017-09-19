@@ -12,10 +12,10 @@ import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import { Distortion, Input, Output } from 'audio-effects';
 
 
-
 class App extends Component {
   constructor() {
     super()
+
 
     this.audioSource = null,
     this.audioC = new AudioContext()
@@ -26,11 +26,13 @@ class App extends Component {
   playKey(keyCode) {
     const { sounds, trackObject, volume, isMute, pan, fadeIn, selectedSound, audioEffects } = this.props
     const keys = [37, 38, 40, 39]
-    let track
-    keys.map((key, i) => keyCode === key ? track = trackObject[i+1] : null )
-    if(track && track.gain.length) {track.stop()}
+    let track;
+
+    keys.forEach((key, i) => keyCode === key ? track = trackObject[i+1] : null )
+
     if(sounds && sounds.gain.length) {sounds.stop()}
     if (track) {
+      if(track.gain.length) {track.stop()}
       const trackSettings = {
         volume: volume[track.trackNum] || .5,
         env: {hold: isMute[track.trackNum], attack: fadeIn[track.trackNum]},
@@ -42,13 +44,14 @@ class App extends Component {
         const newTrackSettings = Object.assign({}, trackSettings, {volume: audioEffects[track.trackNum].Wetness})
         setTimeout(() => track.play(newTrackSettings), timeOut)
       }
-      // track.play(trackSettings)
+
       this.audioVisualizer(track, trackSettings)
-      // context ? context.close().then(() => this.audioVisualizer(track, trackSettings)) : this.audioVisualizer(track, trackSettings);
+
     }
   }
 
   audioVisualizer(track, trackSettings) {
+
 
 
 

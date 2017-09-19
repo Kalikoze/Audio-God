@@ -48,5 +48,3 @@ class CreateAccount extends Component {
 }
 
 export default LoginEvalContainer(DisplayLoginContainer(CreateAccount))
-
-// {loginEval.bool ? <p>loginEval.user</p> : null}

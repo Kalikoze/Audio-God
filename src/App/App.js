@@ -11,17 +11,24 @@ import TrackContainer from '../Containers/TrackContainer'
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import { Distortion, Input, Output } from 'audio-effects';
 let context;
-let src
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this.src = null;
+  }
+
   playKey(keyCode) {
     const { sounds, trackObject, volume, isMute, pan, fadeIn, selectedSound, audioEffects } = this.props
     const keys = [37, 38, 40, 39]
-    let track
-    keys.map((key, i) => keyCode === key ? track = trackObject[i+1] : null )
-    if(track && track.gain.length) {track.stop()}
+    let track;
+
+    keys.forEach((key, i) => keyCode === key ? track = trackObject[i+1] : null )
+
     if(sounds && sounds.gain.length) {sounds.stop()}
     if (track) {
+      if(track.gain.length) {track.stop()}
       const trackSettings = {
         volume: volume[track.trackNum] || .5,
         env: {hold: isMute[track.trackNum], attack: fadeIn[track.trackNum]},
@@ -34,12 +41,12 @@ class App extends Component {
         setTimeout(() => track.play(newTrackSettings), timeOut)
       }
       track.play(trackSettings)
-      this.audioVisualizer(track)
+      // this.audioVisualizer(track)
     }
   }
 
   audioVisualizer(track) {
-      src = null;
+      let src = null;
 
       var file = track.source;
       var audio = document.getElementById("audio");
@@ -62,7 +69,6 @@ class App extends Component {
       analyser.fftSize = 256;
 
       var bufferLength = analyser.frequencyBinCount;
-      console.log(bufferLength);
 
       var dataArray = new Uint8Array(bufferLength);
 

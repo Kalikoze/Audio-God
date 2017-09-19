@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './TrackComponent.css';
 import ControlKnob from '../ControlKnob/ControlKnob';
 import Wad from 'web-audio-daw';
@@ -11,7 +11,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
   const trackNum = trackClass.slice(-1);
   const track = trackObject[trackNum]
 
-  function stopSound() {
+  const stopSound = () => {
     if(sounds) {sounds.stop()}
     if(track && track.gain.length) {track.stop()}
   }
@@ -40,7 +40,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
     <div className={trackClass} >
       <div className='track-number-box'>
         <p className='track-number-label'>Track {trackNum}</p>
-      </div>  
+      </div>
       <div className='track-title-container'>
         <div className={!track && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => setTrack()}>
           <p className={!track && selectedSound.bool ? 'add-track-title' : 'track-title'}>{track ? track.source.split('/')[3].split('.')[0] : 'ADD TRACK'}</p>
@@ -88,7 +88,4 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
     </div>
   )
 }
-
-// tabIndex='0' onKeyDown={(e) => playKey(e, playOnKey, track)}
-
 export default TrackContainer(SoundLibraryContainer(TrackComponent))

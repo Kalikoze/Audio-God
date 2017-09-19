@@ -39,11 +39,11 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
   return (
     <div className={trackClass} >
       <div className='track-number-box'>
-        <p className='track-number-label'>Track {trackNum}</p>
+        <p className='track-number-label'>TRACK {trackNum}</p>
       </div>
-      <div className='track-title-container'>
-        <div className={!track && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => setTrack()}>
-          <p className={!track && selectedSound.bool ? 'add-track-title' : 'track-title'}>{track ? track.source.split('/')[3].split('.')[0] : 'ADD TRACK'}</p>
+      <div className='track-title-container' onClick={() => setTrack()}>
+        <div className='component-track-display-box'>
+          <p><span className={!track && selectedSound.bool ? "component-track-number-display component-track-number-display-selected " : "component-track-number-display " }>{track ? track.source.split('/')[3].split('.')[0].toUpperCase() : 'ADD TRACK'} </span></p>
         </div>
       </div>
       <div className='pan-container'>
@@ -81,7 +81,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
           <img className='lower-control-button-ring' alt='' src={goldButton}/>
         </section>
         <div className='key-title-container'>
-          <p className='key-title'>Key</p>
+          <p className='key-title'>Play</p>
           <p className='key-type'>{keyName}</p>
         </div>
       </div>
@@ -89,3 +89,9 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
   )
 }
 export default TrackContainer(SoundLibraryContainer(TrackComponent))
+
+
+
+// <div className={!track && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => setTrack()}>
+//   <p className={!track && selectedSound.bool ? 'add-track-title' : 'track-title'}>{track ? track.source.split('/')[3].split('.')[0] : 'ADD TRACK'}</p>
+// </div>

@@ -10,14 +10,18 @@ import backgroundImage from '../assets/dark-wood.jpg';
 import TrackContainer from '../Containers/TrackContainer'
 import SoundLibraryContainer from '../Containers/SoundLibraryContainer'
 import { Distortion, Input, Output } from 'audio-effects';
-let context;
+
 
 class App extends Component {
   constructor() {
     super()
 
-    this.src = null;
+
+    this.audioSource = null,
+    this.audioC = new AudioContext()
+
   }
+
 
   playKey(keyCode) {
     const { sounds, trackObject, volume, isMute, pan, fadeIn, selectedSound, audioEffects } = this.props
@@ -40,37 +44,55 @@ class App extends Component {
         const newTrackSettings = Object.assign({}, trackSettings, {volume: audioEffects[track.trackNum].Wetness})
         setTimeout(() => track.play(newTrackSettings), timeOut)
       }
-      track.play(trackSettings)
-      // this.audioVisualizer(track)
+
+      this.audioVisualizer(track, trackSettings)
+
     }
   }
 
-  audioVisualizer(track) {
-      let src = null;
+  audioVisualizer(track, trackSettings) {
 
-      var file = track.source;
-      var audio = document.getElementById("audio");
 
-      audio.src = file;
+
+
+      var audio = document.getElementById("audio-holder");
+
+
+
+
+      audio.src = track.source
       audio.load();
-      // audio.play();
-      context = new AudioContext();
-      src = context.createMediaElementSource(audio);
-      var analyser = context.createAnalyser();
+      audio.play(trackSettings);
+
+      console.log(this.audioC)
+      !this.audioSource ? this.audioSource = this.audioC.createMediaElementSource(audio) : null
+      var analyser = this.audioC.createAnalyser();
+
+      // audio.src = this.audioTrack;
+      // audio.load();
+      // // track.play(trackSettings);
+      // audio.play(trackSettings);
+      // context = new AudioContext();
+      // var src = context.createMediaElementSource(audio);
+
+
+      // var analyser = context.createAnalyser();
 
       var canvas = document.getElementById("canvas");
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       var ctx = canvas.getContext("2d");
 
-      src.connect(analyser);
-      analyser.connect(context.destination);
+      this.audioSource.connect(analyser);
+      analyser.connect(this.audioC.destination);
 
       analyser.fftSize = 256;
 
       var bufferLength = analyser.frequencyBinCount;
 
+
       var dataArray = new Uint8Array(bufferLength);
+      analyser.getByteTimeDomainData(dataArray)
 
       var WIDTH = canvas.width;
       var HEIGHT = canvas.height;
@@ -128,6 +150,8 @@ class App extends Component {
               </div>
             </div>
           </div>
+          <audio id='audio-holder'>
+          </audio>
       </div>
     );
   }

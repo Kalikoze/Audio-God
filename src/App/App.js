@@ -13,7 +13,7 @@ import { Distortion, Input, Output } from 'audio-effects';
 
 class App extends Component {
   playKey(keyCode) {
-    const { sounds, trackObject, volume, isMute, pan, fadeIn, selectedSound, audioEffects } = this.props
+    const { sounds, trackObject, volume, isMute, pan, fadeIn, selectedSound, audioEffects, selectSound } = this.props
     const keys = [37, 38, 40, 39]
     let track;
 
@@ -92,6 +92,8 @@ class App extends Component {
   };
 
   render() {
+
+
     return (
       <div className="App" tabIndex='0' onKeyDown={e => this.playKey(e.keyCode)}>
 

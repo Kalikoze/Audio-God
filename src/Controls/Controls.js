@@ -20,7 +20,7 @@ const Controls = ({createAccount, renderLogin, createErrorMessage, loginEval}) =
 
   return (
     <div className="controls">
-      <p className='controls-title'>Controls</p>
+      <p className='controls-title'>Master Controls</p>
       <div className='upper-button-container'>
         <div className='login-button-container' onClick={() => (renderLogin(true, false), createErrorMessage(''))}>
           <div className={loginEval.bool? 'controls-button-glass login-glass glass-loggedIn' : 'controls-button-glass login-glass'}>

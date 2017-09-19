@@ -22,7 +22,6 @@ class App extends Component {
     if(sounds && sounds.gain.length) {sounds.stop()}
     if (track) {
       if(track.gain.length) {track.stop()}
-      // console.log(track)
       const trackSettings = {
         volume: volume[track.trackNum] || .5,
         env: {hold: isMute[track.trackNum], attack: fadeIn[track.trackNum]},
@@ -39,8 +38,34 @@ class App extends Component {
     }
   }
 
+  makeDistortion(amount) {
+  let k = typeof amount === 'number' ? amount : 50,
+    n_samples = 44100,
+    curve = new Float32Array(n_samples),
+    deg = Math.PI / 180,
+    i = 0,
+    x;
+
+  for ( ; i < n_samples; ++i ) {
+    x = i * 2 / n_samples - 1;
+    curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+  }
+
+  return curve;
+};
+
   audioVisualizer(track, trackSettings) {
+    const { audioEffects } = this.props;
+
     track.play(trackSettings)
+    track.soundSource ? track.soundSource.playbackRate.value = audioEffects[track.trackNum].Tempo : null
+
+    const distortion = track.destination.context.createWaveShaper()
+    track.gain[0].connect(distortion)
+    distortion.connect(track.destination.context.destination)
+    distortion.curve = this.makeDistortion(audioEffects[track.trackNum].Distortion)
+
+
     const analyser = track.destination.context.createAnalyser();
 
     const canvas = document.getElementById("canvas");

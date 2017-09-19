@@ -20,7 +20,7 @@ const AudioEffects = ({selectedTrack}) => {
         <ControlKnob knobClass='control-knob1' knobType='knob-effects' ticks="tick-effects"
         effect='Fade In' valueContainer='effects-value'/>
         <ControlKnob knobClass='control-knob2' knobType='knob-effects' ticks="tick-effects"
-        effect='Thing' selected={selectedTrack} valueContainer='effects-value'/>
+        effect='Tempo' selected={selectedTrack} valueContainer='effects-value'/>
         <ControlKnob knobClass='control-knob3' knobType='knob-effects' ticks="tick-effects"
         effect='Distortion' valueContainer='effects-value'/>
         <ControlKnob knobClass='control-knob4' knobType='knob-effects' ticks="tick-effects"

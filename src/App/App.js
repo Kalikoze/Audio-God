@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Visualizer from '../Visualizer/Visualizer';
-import AudioVisualizer from '../AudioVisualizer/AudioVisualizer';
 import AudioEffects from '../AudioEffects/AudioEffects';
 import Mixer from '../Mixer/Mixer';
 import Controls from '../Controls/Controls';
@@ -13,16 +12,6 @@ import { Distortion, Input, Output } from 'audio-effects';
 
 
 class App extends Component {
-  constructor() {
-    super()
-
-
-    this.audioSource = null,
-    this.audioC = new AudioContext()
-
-  }
-
-
   playKey(keyCode) {
     const { sounds, trackObject, volume, isMute, pan, fadeIn, selectedSound, audioEffects } = this.props
     const keys = [37, 38, 40, 39]
@@ -33,10 +22,12 @@ class App extends Component {
     if(sounds && sounds.gain.length) {sounds.stop()}
     if (track) {
       if(track.gain.length) {track.stop()}
+      // console.log(track)
       const trackSettings = {
         volume: volume[track.trackNum] || .5,
         env: {hold: isMute[track.trackNum], attack: fadeIn[track.trackNum]},
         panning: pan[track.trackNum],
+        pitch: 'A5'
       }
       let timeOut = 0
       for(let i = 0; i < audioEffects[track.trackNum].Echo; i++) {
@@ -44,91 +35,61 @@ class App extends Component {
         const newTrackSettings = Object.assign({}, trackSettings, {volume: audioEffects[track.trackNum].Wetness})
         setTimeout(() => track.play(newTrackSettings), timeOut)
       }
-
       this.audioVisualizer(track, trackSettings)
-
     }
   }
 
   audioVisualizer(track, trackSettings) {
+    track.play(trackSettings)
+    const analyser = track.destination.context.createAnalyser();
 
+    const canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
 
+    track.gain[0].connect(analyser);
+    analyser.connect(track.destination);
 
+    analyser.fftSize = 256;
 
-      var audio = document.getElementById("audio-holder");
+    const bufferLength = analyser.frequencyBinCount;
 
+    const dataArray = new Uint8Array(bufferLength);
+    analyser.getByteTimeDomainData(dataArray)
 
+    const width = canvas.width;
+    const height = canvas.height;
 
+    const barWidth = (width / bufferLength) * 2.5;
+    let barHeight;
+    let x = 0;
 
-      audio.src = track.source
-      audio.load();
-      audio.play(trackSettings);
+    const renderFrame = () => {
+      requestAnimationFrame(renderFrame);
 
-      console.log(this.audioC)
-      !this.audioSource ? this.audioSource = this.audioC.createMediaElementSource(audio) : null
-      var analyser = this.audioC.createAnalyser();
+      x = 0;
 
-      // audio.src = this.audioTrack;
-      // audio.load();
-      // // track.play(trackSettings);
-      // audio.play(trackSettings);
-      // context = new AudioContext();
-      // var src = context.createMediaElementSource(audio);
+      analyser.getByteFrequencyData(dataArray);
 
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0, 0, width, height);
 
-      // var analyser = context.createAnalyser();
+      for (let i = 0; i < bufferLength; i++) {
+        barHeight = dataArray[i] * 3;
 
-      var canvas = document.getElementById("canvas");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      var ctx = canvas.getContext("2d");
+        const r = barHeight + (25 * (i/bufferLength));
+        const g = 250 * (i/bufferLength);
+        const b = 50;
 
-      this.audioSource.connect(analyser);
-      analyser.connect(this.audioC.destination);
+        ctx.fillStyle = "#109310";
+        ctx.fillRect(x, height - barHeight, barWidth, barHeight);
 
-      analyser.fftSize = 256;
-
-      var bufferLength = analyser.frequencyBinCount;
-
-
-      var dataArray = new Uint8Array(bufferLength);
-      analyser.getByteTimeDomainData(dataArray)
-
-      var WIDTH = canvas.width;
-      var HEIGHT = canvas.height;
-
-      var barWidth = (WIDTH / bufferLength) * 2.5;
-      var barHeight;
-      var x = 0;
-
-      function renderFrame() {
-        requestAnimationFrame(renderFrame);
-
-        x = 0;
-
-        analyser.getByteFrequencyData(dataArray);
-
-        ctx.fillStyle = "#000";
-        ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-        for (var i = 0; i < bufferLength; i++) {
-          barHeight = dataArray[i] * 3;
-
-          var r = barHeight + (25 * (i/bufferLength));
-          var g = 250 * (i/bufferLength);
-          var b = 50;
-
-          ctx.fillStyle = "#109310";
-          ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-
-          x += barWidth + 1;
-        }
+        x += barWidth + 1;
       }
-
-      renderFrame();
-
+    }
+    renderFrame();
   };
-
 
   render() {
     return (
@@ -139,19 +100,17 @@ class App extends Component {
         </div>
         <div className='component-container'>
           <Visualizer />
-            <div className='controls-container'>
-              <div className='lower-control-left-box'>
-                <AudioEffects />
-                <SoundLibrary />
-              </div>
-              <div className='lower-control-right-box'>
-                <Controls />
-                <Mixer />
-              </div>
+          <div className='controls-container'>
+            <div className='lower-control-left-box'>
+              <AudioEffects />
+              <SoundLibrary />
+            </div>
+            <div className='lower-control-right-box'>
+              <Controls />
+              <Mixer />
             </div>
           </div>
-          <audio id='audio-holder'>
-          </audio>
+        </div>
       </div>
     );
   }

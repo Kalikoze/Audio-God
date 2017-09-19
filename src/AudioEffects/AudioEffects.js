@@ -14,8 +14,6 @@ const AudioEffects = ({selectedTrack}) => {
         <div className='track-display-box'>
           <p><span className="track-number-display">EDIT TRACK: {selectedTrack}</span></p>
         </div>
-
-
         <img className='audio-controls-backdrop' alt='' src={AudioControlsBack}/>
         <img className='scale' alt='' src={scale}/>
         <div className='scale-backdrop'></div>

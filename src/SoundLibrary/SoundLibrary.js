@@ -27,22 +27,25 @@ const SoundLibrary = ({sounds, soundsArray, changeSounds, selectSound, selectedS
     const sampleName = sample.split('/')[3].split('.')[0]
     return (
       <div className='sound-container' key={i} onClick={() => (playSound(sample), selectSound(sample, true, sampleName))}>
-        <span className='sound'>{sampleName}</span>
+        <p className={selectedSound.name === sampleName ? 'sound sound-selected' : 'sound'}>{sampleName}</p>
       </div>
     )
   })
 
+  console.log(selectedSound)
+
   return (
     <div className="sound-library">
       <p className='library-title'>Track Library</p>
-      <div className='selected-title-box'>
-        <p className='selected-title'>{selectedSound.bool ? selectedSound.name : null}</p>
+      <div className='library-track-display-box'>
+        <p><span className="library-track-number-display">{selectedSound.bool ? 'SELECTED TRACK: ' + selectedSound.name.toUpperCase() : 'NO TRACK SELECTED'}</span></p>
       </div>
+
       <div className='library-component-background'>
 
         <img className='black-background-library' alt='' src={blackBackground}/>
-        <div className='melodic-samples' onClick={() => changeSounds(melodicSamples)}>Melodic Samples</div>
-        <div className='drum-samples' onClick={() => changeSounds(drumSamples)}>Drum Samples</div>
+        <div className={soundsArray.length === 16 ? 'melodic-samples melodic-samples-selected' : 'melodic-samples'} onClick={() => changeSounds(melodicSamples)}>Melodic Samples</div>
+        <div className={soundsArray.length === 27 ? 'drum-samples drum-samples-selected' : 'drum-samples'} onClick={() => changeSounds(drumSamples)}>Drum Samples</div>
         <div className='sounds'>
           <ul id="playlist">
             {samples}

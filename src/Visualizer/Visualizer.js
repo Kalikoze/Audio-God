@@ -24,7 +24,7 @@ const Visualizer = ({displayLogin, loginEval}) => {
       <div className='visualizer-box'>
       <div className='audio-visualizer-container'>
         <canvas id="canvas"></canvas>
-        <audio id="audio" controls></audio>
+
       </div>
         <div className='login-box'>
           {!loginEval.bool ? <p className='login'>PLEASE LOGIN</p> : <p className='loggedIn'>{theUser}</p>}

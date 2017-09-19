@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Visualizer from '../Visualizer/Visualizer';
-import AudioVisualizer from '../AudioVisualizer/AudioVisualizer';
 import AudioEffects from '../AudioEffects/AudioEffects';
 import Mixer from '../Mixer/Mixer';
 import Controls from '../Controls/Controls';

@@ -34,7 +34,7 @@ const SoundLibrary = ({sounds, soundsArray, changeSounds, selectSound, selectedS
 
   return (
     <div className="sound-library">
-      <p className='library-title'>Library Selected Track:</p>
+      <p className='library-title'>Track Library</p>
       <div className='selected-title-box'>
         <p className='selected-title'>{selectedSound.bool ? selectedSound.name : null}</p>
       </div>

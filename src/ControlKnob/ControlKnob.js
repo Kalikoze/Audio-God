@@ -21,10 +21,10 @@ class ControlKnob extends Component {
     const maxangle = angle + 2 <= 270 ? angle + 2 : 270;
     effect === 'Echo' ? echo(Math.round(angle/67.5), selectedTrack) : null
     effect === 'Delay' ? delay(Math.round(angle * 3.7), selectedTrack) : null
-    effect === 'Wetness' ? wetness((angle/270), selectedTrack) : null
-    effect === 'Fade In' ? changeFade((angle/54), selectedTrack) : null
+    effect === 'Wet' ? wetness((angle/270), selectedTrack) : null
+    effect === 'Fade' ? changeFade((angle/54), selectedTrack) : null
     effect === 'Tempo' ? changeTempo(((angle/270) * 1.5) + 0.5, selectedTrack) : null
-    effect === 'Distortion' ? changeDistortion(Math.round((angle/270) * 1000), selectedTrack) : null
+    effect === 'Dist' ? changeDistortion(Math.round((angle/270) * 1000), selectedTrack) : null
 
     e.nativeEvent.wheelDelta > 0 ? (this.setState({angle: maxangle}), this.setControlAngle()) : (this.setState({angle: minangle}), this.setControlAngle())
   }
@@ -76,12 +76,12 @@ class ControlKnob extends Component {
         <div className={valueContainer}>
           <p><span className="current-value">
             {knobClass === 'pan' ? Math.round(pan[trackNum]*100) || 0 : null}
-            {effect === 'Fade In' ? `${Math.round(fadeIn[selectedTrack] * 20) || 0}%` : null}
+            {effect === 'Fade' ? `${Math.round(fadeIn[selectedTrack] * 20) || 0}%` : null}
             {effect === 'Echo' ? audioEffects[selectedTrack].Echo : null}
             {effect === 'Delay' ? `${Math.round(audioEffects[selectedTrack].Delay/10)}%` : null}
-            {effect === 'Wetness' ? `${Math.round(audioEffects[selectedTrack].Wetness*100)}%` : null}
+            {effect === 'Wet' ? `${Math.round(audioEffects[selectedTrack].Wetness*100)}%` : null}
             {effect === 'Tempo' ? `${Math.round(audioEffects[selectedTrack].Tempo * 100)}%` : null}
-            {effect === 'Distortion' ? `${Math.round(audioEffects[selectedTrack].Distortion / 10)}%` : null}
+            {effect === 'Dist' ? `${Math.round(audioEffects[selectedTrack].Distortion / 10)}%` : null}
           </span></p>
         </div>
       </div>

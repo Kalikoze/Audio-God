@@ -32,8 +32,6 @@ const SoundLibrary = ({sounds, soundsArray, changeSounds, selectSound, selectedS
     )
   })
 
-  console.log(selectedSound)
-
   return (
     <div className="sound-library">
       <p className='library-title'>Track Library</p>

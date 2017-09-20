@@ -6,12 +6,28 @@ import TrackContainer from '../Containers/TrackContainer'
 class ControlKnob extends Component {
   constructor(props) {
     super(props);
-    const { ticks, effect } = this.props
+    const { ticks, effect, selectedTrack } = this.props
     this.state = {
-      angle: effect === 'Tempo' ? 90 : 0,
+      angle: this.angle(selectedTrack),
       currentValue: 0,
       ticksArray: Array.from(Array(28), (e, i) => <div className={ticks} key={i}></div>)
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { audioEffects, trackNum, effect, selectedTrack } = this.props
+
+    selectedTrack !== nextProps.selectedTrack ? this.setState({angle: this.angle(nextProps.selectedTrack)}) : null
+  }
+
+  angle(selected) {
+    const {effect, audioEffects, selectedTrack, fadeIn} = this.props
+    if(effect === 'Echo')  {return audioEffects[selected].Echo*67.5}
+    if (effect === 'Delay') {return audioEffects[selected].Delay*10}
+    if (effect === 'Wetness') {return audioEffects[selected].Wetness/100}
+    if (effect === 'Fade In') {return fadeIn[selected]/20 || 0}
+    if (effect === 'Tempo') {return audioEffects[selected].Tempo === 1 ? 90 : audioEffects[selected.Tempo]}
+    if (effect === 'Distortion') {return audioEffects[selected].Distortion*10}
   }
 
   moveControlKnob(e) {
@@ -56,6 +72,8 @@ class ControlKnob extends Component {
     const styles = {
       transform: `rotate(${y}deg)`
     };
+
+    // console.log(selectedTrack)
 
     return (
       <div className={knobClass}>

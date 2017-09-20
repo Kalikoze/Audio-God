@@ -401,7 +401,7 @@
 }
 
 .mute-button:hover .mute-button-glass {
-  background: red;
+  /*background: green;*/
 }
 
 .mute-label {

@@ -42,10 +42,11 @@
   width: 108px;
   position: absolute;
   z-index: 100;
+  display: none;
 }
 
 .controls-button-glass  {
-  width: 106px;
+  /*width: 106px;
   border-radius: 10px;
   height: 56%;
   position: absolute;
@@ -58,20 +59,44 @@
   box-shadow: inset 9px 4px 23px #5d4837;
   animation-name: controlsButtonGlass;
   animation-duration: 2s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: infinite;*/
+}
+
+.controls-button-glass  {
+width: 95px;
+border-radius: 6px;
+height: 50%;
+position: absolute;
+z-index: 99;
+background: orange;
+border: solid 2px #aa914c;
+opacity: .7;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-align: center;
+align-items: center;
+-ms-flex-pack: center;
+justify-content: center;
+
+box-shadow: inset 0px 0px 10px black;
+animation-name: controlsButtonGlass;
+-webkit-animation-duration: 2s;
+animation-duration: 2s;
+-webkit-animation-iteration-count: infinite;
+animation-iteration-count: infinite;
 }
 
 @keyframes controlsButtonGlass {
   0% {
-      box-shadow: inset 9px 4px 18px #5d4837;
+      box-shadow: inset 0px 0px 10px black;
       opacity: 1;
   }
   50% {
-      box-shadow: inset 9px 4px 23px #5d4837;
-      opacity: .7;
+      box-shadow: inset 0px 0px 20px black;
+      opacity: .8;
   }
   100% {
-      box-shadow: inset 9px 4px 23px #5d4837;
+      box-shadow: inset 0px 0px 10px black;
       opacity: 1;
   }
 }
@@ -100,7 +125,7 @@
   width: 150px;
   height: 100%;
   /*background: red;*/
-  left: 0px;
+  left: 10px;
   position: absolute;
   display: flex;
   align-items: center;
@@ -138,7 +163,7 @@
   width: 150px;
   height: 100%;
   /*background: red;*/
-  left: 274px;
+  left: 262px;
   position: absolute;
   display: flex;
   align-items: center;
@@ -170,7 +195,7 @@
   width: 150px;
   height: 100%;
   /*background: red;*/
-  left: 0px;
+  left: 10px;
   position: absolute;
   display: flex;
   align-items: center;
@@ -208,7 +233,7 @@
   width: 150px;
   height: 100%;
   /*background: red;*/
-  left: 274px;
+  left: 262px;
   position: absolute;
   display: flex;
   align-items: center;

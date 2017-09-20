@@ -8,7 +8,7 @@ class ControlKnob extends Component {
     super(props);
     const { ticks, effect, selectedTrack } = this.props
     this.state = {
-      angle: this.angle(selectedTrack),
+      angle: this.angle(selectedTrack) || 0,
       currentValue: 0,
       ticksArray: Array.from(Array(28), (e, i) => <div className={ticks} key={i}></div>)
     }
@@ -72,6 +72,9 @@ class ControlKnob extends Component {
     const styles = {
       transform: `rotate(${y}deg)`
     };
+    const stylesTempo = {
+      transform: `rotate(${y - 90}deg)`
+    };
 
     // console.log(selectedTrack)
 
@@ -81,7 +84,8 @@ class ControlKnob extends Component {
         <div className="knob-surround">
         <div className="image" onWheel={e => knobClass.includes('control-knob') ? this.moveControlKnob(e) : this.movePanKnob(e)}>
           <img className={knobType} src={audioKnob} alt='' style={styles}/>
-        {ticks === 'tick-effects' ? <p className='knob-label' style={styles}>{effect}</p> : ''}
+        {ticks === 'tick-effects' && effect !== 'Tempo' ? <p className='knob-label' style={styles}>{effect}</p> : ''}
+        {ticks === 'tick-effects' && effect === 'Tempo' ? <p className='knob-label' style={stylesTempo}>{effect}</p> : ''}
         </div>
           {ticks === "tick-effects" ? <span className="min">Min</span> : ''}
           {ticks === "tick-effects" ? <span className="max">Max</span> : ''}

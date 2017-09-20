@@ -74,7 +74,7 @@
 
 .component-track-number-display  {
   /*position: absolute;*/
-  font-size: 10px;
+  font-size: 9px;
   font-family: 'alarm-clock';
       font-family: "Varela Round", sans-serif;
   top: 1px;
@@ -257,17 +257,47 @@
   transition: opacity .2s;
 }
 
-/*input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-  margin-top: -14px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+/*input[type="range"]::-webkit-slider-thumb {
+  background-image: url('../assets/audio-knob.png');
+  width: 200px;
 }*/
+
+.fader::-webkit-slider-thumb
+    {
+    -webkit-appearance: none;
+    background-image: url('../assets/audio-knob.png');
+    opacity: 1;
+    /*background: red;*/
+    width: 20px;
+    height: 20px;
+    /*position: absolute;*/
+    /*top: 0px;*/
+    /*z-index: 99;*/
+    background-size: 20px;
+    background-repeat: no-repeat;
+    /*background-position: 50%;*/
+ }
+
+ .fader {
+   position: absolute;
+ top: 91px;
+ left: -22px;
+ height: 10px;
+ width: 124px;
+ -webkit-transform: rotate(-90deg);
+ -ms-transform: rotate(-90deg);
+ transform: rotate(-90deg);
+ -webkit-appearance: none;
+ border-radius: 5px;
+ background: black;
+ outline: none;
+ opacity: 0.75;
+ -webkit-transition: .2s;
+ -webkit-transition: opacity .2s;
+ -o-transition: opacity .2s;
+ transition: opacity .2s;
+ }
+
 
 .fader:hover  {
   cursor: pointer;
@@ -377,6 +407,7 @@
   font-family: "Varela Round", sans-serif;
   font-size: 11px;
   color: white;
+  /*color: black;*/
   position: absolute;
   top: 3px;
   left: 29px;
@@ -388,24 +419,32 @@ height: 100%;
 position: absolute;
 top: 0px;
 left: 5%;
+display: none;
 }
 
 .mute-button-glass  {
-width: 90%;
-height: 94%;
-border-radius: 100px;
-background: green;
-position: absolute;
-top: 0px;
-left: 5%;
--webkit-box-shadow: inset 0px 0px 13px black;
-box-shadow: inset 0px 0px 13px black;
--webkit-animation-name: buttonGlass;
-animation-name: buttonGlass;
--webkit-animation-duration: 1s;
-animation-duration: 1s;
--webkit-animation-iteration-count: infinite;
-animation-iteration-count: infinite;
+  width: 71%;
+  height: 82%;
+   border-radius: 4px;
+  background: grey;
+  /*background: #c8ab5d;*/
+  /*background: #e5cd8d;*/
+  position: absolute;
+  border: solid 2px #aa914c;
+  top: -2px;
+  left: 12%;
+  box-shadow: inset 0px 0px 13px black;
+  /*animation-name: buttonGlass;*/
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.mute-glass {
+  background: red;
+  animation-name: buttonGlass;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  color: white;
 }
 
 @keyframes buttonGlass {
@@ -447,18 +486,19 @@ animation-iteration-count: infinite;
     font-size: 11px;
     color: white;
     position: absolute;
-    top: 3px;
+    top: 5px;
     left: 33px;
 }
 
 .track-button-glass  {
-  width: 90%;
-height: 94%;
-border-radius: 100px;
+  width: 71%;
+  height: 82%;
+border-radius: 4px;
+  border: solid 2px #aa914c;
 background: orange;
 position: absolute;
 top: 0px;
-left: 5%;
+left: 12%;
 -webkit-box-shadow: inset 0px 0px 13px black;
 box-shadow: inset 0px 0px 13px black;
 animation-name: whiteButtonGlass;
@@ -484,13 +524,14 @@ animation-iteration-count: infinite;
 }
 
 .track-button-glass-off  {
-  width: 90%;
-height: 94%;
-border-radius: 100px;
+  width: 71%;
+  height: 82%;
+border-radius: 4px;
+  border: solid 2px #aa914c;
 background: red;
 position: absolute;
 top: 0px;
-left: 5%;
+left: 12%;
 -webkit-box-shadow: inset 0px 0px 13px black;
 box-shadow: inset 0px 0px 13px black;
 animation-name: whiteButtonGlass;
@@ -524,18 +565,19 @@ animation-iteration-count: infinite;
     font-size: 11px;
     color: white;
     position: absolute;
-    top: 3px;
+    top: 5px;
     left: 22px;
 }
 
 .remove-button-glass  {
-  width: 90%;
-height: 94%;
-border-radius: 100px;
+  width: 71%;
+  height: 82%;
+border-radius: 4px;
 background: orange;
 position: absolute;
 top: 0px;
-left: 5%;
+left: 12%;
+  border: solid 2px #aa914c;
 -webkit-box-shadow: inset 0px 0px 13px black;
 box-shadow: inset 0px 0px 13px black;
 animation-name: whiteButtonGlass;
@@ -546,13 +588,14 @@ animation-iteration-count: infinite;
 }
 
 .remove-button-glass-off  {
-  width: 90%;
-height: 94%;
-border-radius: 100px;
+  width: 71%;
+  height: 82%;
+border-radius: 4px;
 background: red;
 position: absolute;
 top: 0px;
-left: 5%;
+left: 12%;
+  border: solid 2px #aa914c;
 -webkit-box-shadow: inset 0px 0px 13px black;
 box-shadow: inset 0px 0px 13px black;
 animation-name: whiteButtonGlass;
@@ -726,8 +769,4 @@ animation-iteration-count: infinite;
   color: rgba(255,255,255,.4);
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
-}
-
-.mute-glass {
-  background: red;
 }

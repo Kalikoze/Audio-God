@@ -36,6 +36,10 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
     changeVolume(volume, trackNum)
   }
 
+
+
+
+
   return (
     <div className={trackClass} >
       <div className='track-number-box'>
@@ -53,7 +57,7 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
       <div className="volume-container">
         <img className='volume-plate' alt='' src={goldPlate}/>
         <div className="volume-control">
-          <input type='range' className='fader' min='0' max='100' value={(volume[trackNum] * 100)} onChange={(e) => theVolume(e.target.value)}/>
+          <input  type='range' className='fader' min='0' max='100' value={(volume[trackNum] * 100)} onChange={(e) => theVolume(e.target.value)}/>
         </div>
         <div className="volume-display">
           <div className='volume-display-container'>

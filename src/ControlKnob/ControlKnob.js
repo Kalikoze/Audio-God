@@ -17,17 +17,20 @@ class ControlKnob extends Component {
   componentWillReceiveProps(nextProps) {
     const { audioEffects, trackNum, effect, selectedTrack } = this.props
 
-    selectedTrack !== nextProps.selectedTrack ? this.setState({angle: this.angle(nextProps.selectedTrack)}) : null
+    if (selectedTrack !== nextProps.selectedTrack) {
+      this.setState({angle: this.angle(nextProps.selectedTrack)})
+      this.setControlAngle()
+    }
   }
 
   angle(selected) {
     const {effect, audioEffects, selectedTrack, fadeIn} = this.props
     if(effect === 'Echo')  {return audioEffects[selected].Echo*67.5}
-    if (effect === 'Delay') {return audioEffects[selected].Delay*10}
-    if (effect === 'Wet') {return audioEffects[selected].Wetness/100}
-    if (effect === 'Fade') {return fadeIn[selected]/20 || 0}
-    if (effect === 'Tempo') {return audioEffects[selected].Tempo === 1 ? 90 : audioEffects[selected.Tempo]}
-    if (effect === 'Dist') {return audioEffects[selected].Distortion*10}
+    if (effect === 'Delay') {return audioEffects[selected].Delay/3.7}
+    if (effect === 'Wet') {return audioEffects[selected].Wetness*270}
+    if (effect === 'Fade') {return fadeIn[selected]*54 || 0}
+    if (effect === 'Tempo') {return ((audioEffects[selected].Tempo-0.5)*180)}
+    if (effect === 'Dist') {return (audioEffects[selected].Distortion*270)/1000}
   }
 
   moveControlKnob(e) {

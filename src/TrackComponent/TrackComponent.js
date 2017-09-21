@@ -16,12 +16,12 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
     if(track && track.gain.length) {track.stop()}
   }
 
-  function changeMute() {
+  const changeMute = () => {
     stopSound()
     isMute[trackNum] ? mute(0, trackNum) : mute(10000, trackNum)
   }
 
-  function setTrack() {
+  const setTrack = () => {
     stopSound()
     if(selectedSound && selectedSound.sound) {
       setTrackObject(selectedSound.sound, trackNum)
@@ -31,14 +31,10 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
 
   const volumeLevel = {height: `${(volume[trackNum] * 100)}%`}
 
-  function theVolume(e)  {
+  const theVolume = (e) => {
     const volume = e / 100;
     changeVolume(volume, trackNum)
   }
-
-
-
-
 
   return (
     <div className={trackClass} >
@@ -92,10 +88,5 @@ const TrackComponent = ({trackClass, trackObject, sounds, selectedSound, setTrac
     </div>
   )
 }
+
 export default TrackContainer(SoundLibraryContainer(TrackComponent))
-
-
-
-// <div className={!track && selectedSound.bool ? 'add-track' : 'track-title-button'} onClick={() => setTrack()}>
-//   <p className={!track && selectedSound.bool ? 'add-track-title' : 'track-title'}>{track ? track.source.split('/')[3].split('.')[0] : 'ADD TRACK'}</p>
-// </div>
